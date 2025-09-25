@@ -1,6 +1,20 @@
 # Dataset and Database folders
 Dataset/
 
+# Model training outputs and checkpoints
+Fine Tuning/ConvNet Transfer Learning/convnextv2_cervical/
+**/convnextv2_cervical/
+**/saved_*_model/
+**/checkpoints/
+**/checkpoint-*/
+*.safetensors
+*.bin
+trainer_state.json
+training_args.bin
+optimizer.pt
+scheduler.pt
+rng_state.pth
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
