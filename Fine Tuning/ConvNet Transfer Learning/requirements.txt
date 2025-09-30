@@ -1,9 +1,0 @@
-pandas
-scikit-learn
-datasets
-transformers
-torch
-torchvision
-Pillow
-numpy
-accelerate>=0.26.0
