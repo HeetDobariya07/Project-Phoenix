@@ -1,14 +1,26 @@
 # 🔧 Vercel Deployment Fix Guide
 
-## 🚨 CRITICAL ERROR: "No Next.js version detected"
+## 🚨 CRITICAL ERROR: Module Resolution & Build Failures
 
-### Error Details:
+### Common Errors:
+
+#### Error 1: "Module not found: Can't resolve '@/lib/utils'"
+```
+Error: Turbopack build failed with 2 errors:
+./Phoenix/phoenix-app/src/components/hover-footer.tsx:6:1
+Module not found: Can't resolve '@/lib/utils'
+```
+
+#### Error 2: "No Next.js version detected"
 ```
 Warning: Could not identify Next.js version
 Error: No Next.js version detected. Make sure your package.json has "next" 
 in either "dependencies" or "devDependencies". Also check your Root Directory 
 setting matches the directory of your package.json file.
 ```
+
+#### Error 3: "404: NOT_FOUND"
+After successful deployment, visiting the site shows a 404 error.
 
 ### Root Cause:
 Vercel is deploying from the **repository root** (`Project-Phoenix/`), but your Next.js app is located in the **subdirectory** (`Phoenix/phoenix-app/`).
