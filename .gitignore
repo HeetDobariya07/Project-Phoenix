@@ -31,8 +31,8 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
+# lib/ - Commented out to allow src/lib in phoenix-app
+# lib64/
 parts/
 sdist/
 var/
