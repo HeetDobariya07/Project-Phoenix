@@ -112,3 +112,16 @@ temp/
 # Backup files
 *.bak
 *.backup
+
+# IMPORTANT: Files that MUST be committed for deployment
+# The following are NOT ignored and will be committed:
+# - package.json
+# - package-lock.json (or yarn.lock, pnpm-lock.yaml)
+# - tsconfig.json
+# - next.config.ts (or next.config.js, next.config.mjs)
+# - tailwind.config.ts (or .js, .mjs)
+# - postcss.config.mjs (or .js)
+# - All files in /src directory
+# - All files in /public directory
+# - All .tsx, .ts, .jsx, .js files
+# - vercel.json (if present)
