@@ -52,7 +52,7 @@ lerna-debug.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+# DO NOT ignore next-env.d.ts if needed, but typically auto-generated
 
 # IDEs and editors
 /.idea
@@ -87,8 +87,8 @@ Thumbs.db
 # Turbopack
 .turbo
 
-# Local development
-*.local
+# Local development - only ignore .env.local and similar files, not all .local files
+# *.local
 
 # Logs
 logs
