@@ -7,3 +7,4 @@ export { TextHoverEffect, FooterBackgroundGradient } from "./hover-footer";
 export { NavigationDock } from "./navigation-dock";
 export { ClassificationShowcase } from "./classification-showcase";
 export { default as InteractiveSelector } from "./interactive-selector";
+export { default as TeamSection } from "./team";

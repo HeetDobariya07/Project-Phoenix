@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Home, Info } from "lucide-react";
+import { Home, Info, Users } from "lucide-react";
 import Link from "next/link";
 
 interface NavigationDockProps {
@@ -14,6 +14,7 @@ export const NavigationDock: React.FC<NavigationDockProps> = ({ className = "" }
       <div className="flex items-center gap-3 rounded-[28px] bg-neutral-900/80 px-4 py-2 shadow-2xl ring-1 ring-white/10 backdrop-blur-lg sm:gap-5 sm:rounded-[36px] sm:px-6 sm:py-3">
         <DockIcon icon={Home} label="Home" href="/" />
         <DockIcon icon={Info} label="About" href="/about" />
+        <DockIcon icon={Users} label="Team" href="/team" />
       </div>
     </div>
   );
