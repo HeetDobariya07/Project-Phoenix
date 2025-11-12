@@ -1,6 +1,31 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
+
+// Global singleton state to ensure persistence across ALL component instances
+// This will NEVER reset unless the entire browser session ends
+if (typeof window !== 'undefined') {
+  if (!(window as any).__GRADIENT_START_TIME__) {
+    (window as any).__GRADIENT_START_TIME__ = Date.now();
+  }
+  if (!(window as any).__GRADIENT_STATE__) {
+    (window as any).__GRADIENT_STATE__ = { x: 0, y: 0 };
+  }
+}
+
+const getGlobalStartTime = () => {
+  if (typeof window !== 'undefined') {
+    return (window as any).__GRADIENT_START_TIME__ || Date.now();
+  }
+  return Date.now();
+};
+
+const getGlobalState = () => {
+  if (typeof window !== 'undefined') {
+    return (window as any).__GRADIENT_STATE__ || { x: 0, y: 0 };
+  }
+  return { x: 0, y: 0 };
+};
 
 type InteractiveGradientBackgroundProps = {
   className?: string;
@@ -28,11 +53,18 @@ export default function InteractiveGradientBackground({
 }: InteractiveGradientBackgroundProps) {
   const ref = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number | null>(null);
-  const startTimeRef = useRef<number>(Date.now());
+  const mountedRef = useRef(false);
 
   useEffect(() => {
     const host = ref.current;
     if (!host) return;
+
+    // Prevent multiple animation loops
+    if (mountedRef.current) return;
+    mountedRef.current = true;
+
+    const globalStartTime = getGlobalStartTime();
+    const globalState = getGlobalState();
 
     const prefersReduced =
       typeof window !== 'undefined' &&
@@ -40,8 +72,12 @@ export default function InteractiveGradientBackground({
 
     const animationSpeed = prefersReduced ? 0.1 : speed;
 
+    // Initialize with current global state for absolutely smooth transition
+    host.style.setProperty('--posX', String(globalState.x * intensity));
+    host.style.setProperty('--posY', String(globalState.y * intensity));
+
     const animate = () => {
-      const elapsed = (Date.now() - startTimeRef.current) / 1000;
+      const elapsed = (Date.now() - globalStartTime) / 1000;
       const t = elapsed * animationSpeed;
       
       // Main circular motion - smooth, continuous loop
@@ -51,6 +87,10 @@ export default function InteractiveGradientBackground({
       // Create a smooth circular path
       const x = Math.cos(mainAngle) * radius;
       const y = Math.sin(mainAngle) * radius;
+
+      // Update global state
+      globalState.x = x;
+      globalState.y = y;
 
       host.style.setProperty('--posX', String(x * intensity));
       host.style.setProperty('--posY', String(y * intensity));
@@ -62,6 +102,7 @@ export default function InteractiveGradientBackground({
     rafRef.current = requestAnimationFrame(animate);
 
     return () => {
+      mountedRef.current = false;
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, [intensity, speed]);

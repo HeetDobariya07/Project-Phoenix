@@ -1,4 +1,4 @@
-import { PageLayout, HeroSection, InteractiveSelector, NavigationDock } from "@/components";
+import { PageLayout, HeroSection, ParallaxGallery, BottomNavBar } from "@/components";
 import { HERO_CONFIG } from "@/config/constants";
 
 export default function Home() {
@@ -8,8 +8,8 @@ export default function Home() {
         title={HERO_CONFIG.title}
         subtitle={HERO_CONFIG.subtitle}
       />
-      <InteractiveSelector />
-      <NavigationDock />
+      <ParallaxGallery />
+      <BottomNavBar />
     </PageLayout>
   );
 }
