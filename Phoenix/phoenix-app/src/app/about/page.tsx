@@ -1,9 +1,9 @@
 'use client';
 
 import { PageLayout, ClassificationShowcase, BottomNavBar } from "@/components";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
-const letterVariants = {
+const letterVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
@@ -11,12 +11,12 @@ const letterVariants = {
     transition: {
       delay: i * 0.03,
       duration: 0.3,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as any,
     },
   }),
 };
 
-const wordVariants = {
+const wordVariants: Variants = {
   hidden: { opacity: 0, y: 15 },
   visible: (i: number) => ({
     opacity: 1,
@@ -24,24 +24,24 @@ const wordVariants = {
     transition: {
       delay: 0.2 + i * 0.05,
       duration: 0.3,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as any,
     },
   }),
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { 
     opacity: 1, 
     y: 0,
     transition: {
       duration: 0.4,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as any,
     }
   },
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
