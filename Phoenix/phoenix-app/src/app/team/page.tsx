@@ -1,5 +1,5 @@
 import TeamSection from '@/components/team';
-import PageLayout from '@/components/page-layout';
+import { PageLayout, NavigationDock } from '@/components';
 
 export const metadata = {
   title: 'Team - Project Phoenix',
@@ -10,6 +10,7 @@ export default function TeamPage() {
   return (
     <PageLayout>
       <TeamSection />
+      <NavigationDock />
     </PageLayout>
   );
 }
