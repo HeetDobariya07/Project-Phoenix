@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { InteractiveGradientBackground } from './interactive-gradient-background';
 import { PageTransitionWrapper } from './page-transition-wrapper';
+import { BottomNavBar } from './bottom-nav-bar';
 
 interface RootLayoutWrapperProps {
   children: React.ReactNode;
@@ -25,9 +26,13 @@ export const RootLayoutWrapper: React.FC<RootLayoutWrapperProps> = ({ children }
       className="flex flex-col items-center justify-between"
     >
       {mounted ? (
-        <PageTransitionWrapper>
-          {children}
-        </PageTransitionWrapper>
+        <>
+          <PageTransitionWrapper>
+            {children}
+          </PageTransitionWrapper>
+          {/* Navigation stays outside transition wrapper for persistence */}
+          <BottomNavBar />
+        </>
       ) : (
         <div style={{ minHeight: '100vh' }} />
       )}

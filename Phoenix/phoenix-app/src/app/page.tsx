@@ -1,4 +1,4 @@
-import { PageLayout, HeroSection, ParallaxGallery, BottomNavBar } from "@/components";
+import { PageLayout, HeroSection, ParallaxGallery } from "@/components";
 import { HERO_CONFIG } from "@/config/constants";
 
 export default function Home() {
@@ -9,7 +9,6 @@ export default function Home() {
         subtitle={HERO_CONFIG.subtitle}
       />
       <ParallaxGallery />
-      <BottomNavBar />
     </PageLayout>
   );
 }

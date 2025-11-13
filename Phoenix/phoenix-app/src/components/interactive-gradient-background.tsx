@@ -117,19 +117,24 @@ export default function InteractiveGradientBackground({
         position: 'relative',
         width: '100%',
         minHeight: '100vh',
-        overflow: 'hidden',
         // CSS vars default
         // @ts-ignore
         '--posX': '0',
         '--posY': '0',
       }}
     >
-      {/* Light layer */}
+      {/* Light layer - FIXED to viewport */}
       <div
         aria-hidden="true"
         style={{
-          position: 'absolute',
-          inset: 0,
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: '100vw',
+          height: '100vh',
+          zIndex: 0,
           opacity: dark ? 0 : 1,
           transition: 'opacity 0.5s ease',
           background: `
@@ -144,12 +149,18 @@ export default function InteractiveGradientBackground({
             'overlay, overlay, difference, difference, difference, normal',
         }}
       />
-      {/* Dark layer */}
+      {/* Dark layer - FIXED to viewport */}
       <div
         aria-hidden="true"
         style={{
-          position: 'absolute',
-          inset: 0,
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: '100vw',
+          height: '100vh',
+          zIndex: 0,
           opacity: dark ? 1 : 0,
           transition: 'opacity 0.5s ease',
           background: `
@@ -165,7 +176,7 @@ export default function InteractiveGradientBackground({
         }}
       />
 
-      {/* Content */}
+      {/* Content - scrollable on top of fixed background */}
       {children ? (
         <div style={{ position: 'relative', zIndex: 1 }}>{children}</div>
       ) : null}

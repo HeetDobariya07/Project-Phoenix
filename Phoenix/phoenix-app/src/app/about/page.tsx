@@ -194,8 +194,6 @@ export default function About() {
           </motion.div>
         </div>
       </section>
-
-      <BottomNavBar />
     </PageLayout>
   );
 }
