@@ -37,7 +37,7 @@ const members = [
         avatar: '/images/team/Meet_Profile_Beach.png',
         github: 'https://github.com/Meet2304',
         linkedin: 'https://linkedin.com/in/meetbhatt',
-        twitter: 'https://twitter.com/meetbhatt',
+        twitter: 'https://x.com/Meet2304',
     },
     {
         name: 'Maitri Patel',
