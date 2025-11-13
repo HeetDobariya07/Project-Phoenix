@@ -141,3 +141,25 @@
     scrollbar-width: none;  /* Firefox */
   }
 }
+
+/* Ensure body and html don't have overflow hidden on mobile */
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Ensure navigation is always visible on all devices */
+nav[aria-label="Bottom Navigation"] {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Mobile-specific fixes for navigation visibility */
+@media (max-width: 768px) {
+  nav[aria-label="Bottom Navigation"] {
+    min-width: 280px !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+}

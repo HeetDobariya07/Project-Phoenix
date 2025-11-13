@@ -79,9 +79,11 @@ export function BottomNavBar({
       aria-label="Bottom Navigation"
       className={cn(
         "bg-neutral-900/80 backdrop-blur-lg border border-white/10 rounded-full flex items-center justify-between px-4 py-2 shadow-2xl gap-4 min-w-[280px] max-w-[95vw] h-[52px]",
-        stickyBottom && "fixed inset-x-0 bottom-4 mx-auto z-50 w-fit",
         className,
       )}
+      style={{
+        width: 'fit-content',
+      }}
     >
       {NAV_ITEMS.map((item, idx) => (
         <NavButton
