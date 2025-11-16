@@ -109,7 +109,7 @@ const NavSection = ({ title, links, index }: { title: string; links: { name: str
   </motion.div>
 )
 
-export default function StickyFooter() {
+function StickyFooter() {
   return (
     <div className="relative w-screen left-[50%] right-[50%] -ml-[50vw] -mr-[50vw]">
       <motion.div
@@ -251,3 +251,6 @@ export default function StickyFooter() {
     </div>
   )
 }
+
+export { StickyFooter as Footer }
+export default StickyFooter
