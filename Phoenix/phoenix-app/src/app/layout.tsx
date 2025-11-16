@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Michroma, Poppins, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { RootLayoutWrapper } from "@/components";
+import ScrollProgressBar from "@/components/ui/scroll-progress-bar";
 
 const michroma = Michroma({
   weight: "400",
@@ -43,6 +44,7 @@ export default function RootLayout({
       <body
         className={`${michroma.variable} ${poppins.variable} ${playfair.variable} antialiased`}
       >
+        <ScrollProgressBar type="bar" color="#ffffff" strokeSize={3} />
         <RootLayoutWrapper>
           {children}
         </RootLayoutWrapper>

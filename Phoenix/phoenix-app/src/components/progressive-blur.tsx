@@ -16,24 +16,24 @@ const ProgressiveBlur = ({
   blurAmount = "4px",
 }: ProgressiveBlurProps) => {
   const isTop = position === "top";
-  
+
   return (
     <div
-      className={`pointer-events-none absolute left-0 right-0 w-full select-none z-10 ${className}`}
+      className={`pointer-events-none fixed left-0 w-full select-none ${className}`}
       style={{
         [isTop ? "top" : "bottom"]: 0,
         height,
-        maskImage: isTop
-          ? "linear-gradient(to bottom, black, transparent)"
-          : "linear-gradient(to top, black, transparent)",
-        WebkitMaskImage: isTop
-          ? "linear-gradient(to bottom, black, transparent)"
-          : "linear-gradient(to top, black, transparent)",
+        background: "transparent",
         WebkitBackdropFilter: `blur(${blurAmount})`,
         backdropFilter: `blur(${blurAmount})`,
+        maskImage: isTop
+          ? `linear-gradient(to bottom, black, transparent)`
+          : `linear-gradient(to top, black, transparent)`,
+        WebkitMaskImage: isTop
+          ? `linear-gradient(to bottom, black, transparent)`
+          : `linear-gradient(to top, black, transparent)`,
         WebkitUserSelect: "none",
         userSelect: "none",
-        background: "rgba(0, 0, 0, 0.1)",
       }}
     />
   );
