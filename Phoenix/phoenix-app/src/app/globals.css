@@ -43,6 +43,101 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --background-end-rgb: var(----background-end-rgb);
+  --background-start-rgb: var(----background-start-rgb);
+  --foreground-rgb: var(----foreground-rgb);
+  --animate-fade-in-up: fade-in-up 0.5s ease-out forwards;
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+  --animate-scale-in: scale-in 0.5s ease-out forwards;
+  --color-brand-foreground: var(----brand-foreground);
+  --color-brand: var(----brand);
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+  0% {
+    opacity: 0;
+    }
+  100% {
+    opacity: 1;
+    }
+  }
+  @keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+    }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    }
+  }
+  @keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+  0% {
+    opacity: 0;
+    }
+  100% {
+    opacity: 1;
+    }
+  }
+  @keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+    }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    }
+  }
 }
 
 .michroma-regular {
@@ -50,7 +145,6 @@
   font-weight: 400;
   font-style: normal;
 }
-
 
 :root {
   --radius: 0.625rem;
@@ -85,6 +179,11 @@
   --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
   --sidebar-border: oklch(0.923 0.003 48.717);
   --sidebar-ring: oklch(0.709 0.01 56.259);
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  --brand: hsl(27 96% 61%);
+  --brand-foreground: hsl(31 97% 72%);
 }
 
 .dark {
@@ -119,6 +218,7 @@
   --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.553 0.013 58.071);
+  --brand: hsl(31 97% 72%);
 }
 
 @layer base {
@@ -162,4 +262,41 @@ nav[aria-label="Bottom Navigation"] {
     min-width: 280px !important;
     max-width: calc(100vw - 2rem) !important;
   }
+}
+
+/* Gradient Button Styles */
+.gradient-button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: all 0.3s ease;
+}
+
+.gradient-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #764ba2 0%, #667eea 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-button:hover::before {
+  opacity: 1;
+}
+
+.gradient-button > * {
+  position: relative;
+  z-index: 1;
+}
+
+.gradient-button-variant {
+  background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+}
+
+.gradient-button-variant::before {
+  background: linear-gradient(90deg, #f5576c 0%, #f093fb 100%);
 }

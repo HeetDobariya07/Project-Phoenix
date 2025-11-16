@@ -2,6 +2,7 @@
 
 import { PageLayout, ClassificationShowcase, BottomNavBar } from "@/components";
 import { motion, type Variants } from "framer-motion";
+import StickyFooter from "@/components/footer";
 
 const letterVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -57,6 +58,7 @@ export default function About() {
   const titleLetters = title.split("");
 
   return (
+    <>
     <PageLayout>
       {/* Main About Section - matches HeroSection height */}
       <section className="flex w-full flex-col items-center justify-center min-h-screen py-16 px-4 sm:px-8 md:px-16">
@@ -195,5 +197,7 @@ export default function About() {
         </div>
       </section>
     </PageLayout>
+    <StickyFooter />
+    </>
   );
 }

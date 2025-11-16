@@ -17,7 +17,8 @@ export const FOOTER_LINKS = [
 // Hero section configuration
 export const HERO_CONFIG = {
   title: "PHOENIX",
-  subtitle: "Cervical Cancer Cell Classification",
+  subtitle: "Explainable",
+  subtitleLine2: "Cervical Cancer Classification",
 } as const;
 
 // Interactive gradient background configuration

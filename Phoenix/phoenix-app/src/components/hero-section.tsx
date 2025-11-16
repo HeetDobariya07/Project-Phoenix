@@ -1,27 +1,29 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { GradualSpacing } from "./ui/gradual-spacing";
+import { HERO_CONFIG } from "@/config/constants";
+import { motion } from "framer-motion";
 
 interface HeroSectionProps {
   title?: string;
-  subtitle?: string;
   className?: string;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   title = "PHOENIX",
-  subtitle = "Explainable Cervical Cancer Cell Classification",
   className = "",
 }) => {
   const sectionRef = useRef<HTMLElement>(null);
   const [mounted, setMounted] = useState(false);
+  const [showSubtitle, setShowSubtitle] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     
-    // Animate words after component mounts
+    // Animate title words first
     const animateWords = () => {
-      const allAnimatedElements = document.querySelectorAll('.word-animate, .subtitle-word');
+      const allAnimatedElements = document.querySelectorAll('.word-animate');
       allAnimatedElements.forEach(element => {
         const delay = parseInt(element.getAttribute('data-delay') || '0') || 0;
         setTimeout(() => {
@@ -30,13 +32,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       });
     };
     
+    // Show subtitle after title animation completes
+    const titleAnimationDuration = title.length * 100 + 800; // delay per letter + animation duration
+    const subtitleTimeout = setTimeout(() => {
+      setShowSubtitle(true);
+    }, titleAnimationDuration);
+    
     const timeoutId = setTimeout(animateWords, 500);
-    return () => clearTimeout(timeoutId);
-  }, []);
+    return () => {
+      clearTimeout(timeoutId);
+      clearTimeout(subtitleTimeout);
+    };
+  }, [title]);
 
   // Split text into letters for title
   const titleLetters = title.split("");
-  const subtitleWords = subtitle.split(" ");
 
   return (
     <>
@@ -82,10 +92,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         ref={sectionRef}
         className={`flex w-full flex-col items-center justify-center min-h-screen py-12 sm:py-16 md:py-20 px-4 sm:px-8 md:px-12 lg:px-16 relative ${className}`}
       >
-        <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8 text-center w-full max-w-full overflow-hidden relative z-10">
+        <div className="flex flex-col items-center justify-center text-center w-full max-w-full overflow-hidden relative z-10">
           {/* Title with letter-by-letter animation */}
           <h1
-            className="font-bold leading-tight md:leading-none tracking-wider text-white drop-shadow-lg"
+            className="font-bold leading-tight md:leading-none tracking-wider text-white drop-shadow-lg mb-8 sm:mb-12 md:mb-16"
             style={{
               fontFamily: "var(--font-michroma)",
               whiteSpace: "nowrap",
@@ -108,25 +118,58 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             ))}
           </h1>
           
-          {/* Subtitle with word-by-word animation */}
-          <p 
-            className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-light text-white/90 drop-shadow-md max-w-full px-2"
-            style={{ 
-              fontFamily: "var(--font-poppins)", 
-              transform: "scaleX(1.0)",
-              transformOrigin: "center",
-            }}
-          >
-            {subtitleWords.map((word, index) => (
-              <span
-                key={`subtitle-${index}`}
-                className="subtitle-word"
-                data-delay={800 + index * 150}
-              >
-                {word}
-              </span>
-            ))}
-          </p>
+          {/* Horizontal line separator */}
+          {showSubtitle && (
+            <motion.div 
+              className="w-32 sm:w-40 md:w-48 h-0.5 bg-white/60 mx-auto my-4 sm:my-6 md:my-8"
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0 }}
+              key="horizontal-line"
+            />
+          )}
+          
+          {/* Subtitle with GradualSpacing animation - shows after title */}
+          {showSubtitle && (
+            <div className="w-full max-w-[95vw] sm:max-w-full px-4 sm:px-6 md:px-8 flex flex-col items-center gap-1">
+              {/* Mobile: Two lines */}
+              <div className="block sm:hidden">
+                <GradualSpacing
+                  text={HERO_CONFIG.subtitle}
+                  duration={0.2}
+                  delayMultiple={0.05}
+                  className="text-sm font-playfair font-light text-white/90 drop-shadow-md tracking-tight"
+                  framerProps={{
+                    hidden: { opacity: 0, transform: "translateY(30px) scale(0.8)", filter: "blur(10px)" },
+                    visible: { opacity: 1, transform: "translateY(0) scale(1)", filter: "blur(0)" },
+                  }}
+                />
+                <GradualSpacing
+                  text={HERO_CONFIG.subtitleLine2}
+                  duration={0.2}
+                  delayMultiple={0.05}
+                  className="text-sm font-playfair font-light text-white/90 drop-shadow-md tracking-tight"
+                  framerProps={{
+                    hidden: { opacity: 0, transform: "translateY(30px) scale(0.8)", filter: "blur(10px)" },
+                    visible: { opacity: 1, transform: "translateY(0) scale(1)", filter: "blur(0)" },
+                  }}
+                />
+              </div>
+              {/* Desktop: Single line */}
+              <div className="hidden sm:block">
+                <GradualSpacing
+                  text={`${HERO_CONFIG.subtitle} ${HERO_CONFIG.subtitleLine2}`}
+                  duration={0.2}
+                  delayMultiple={0.05}
+                  className="text-base md:text-lg lg:text-xl xl:text-2xl font-playfair font-light text-white/90 drop-shadow-md tracking-tight md:tracking-normal"
+                  framerProps={{
+                    hidden: { opacity: 0, transform: "translateY(30px) scale(0.8)", filter: "blur(10px)" },
+                    visible: { opacity: 1, transform: "translateY(0) scale(1)", filter: "blur(0)" },
+                  }}
+                />
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </>

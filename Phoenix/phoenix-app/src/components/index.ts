@@ -2,6 +2,7 @@
 export { HeroSection } from "./hero-section";
 export { Footer } from "./footer";
 export { PageLayout } from "./page-layout";
+export { MissionStatement } from "./mission-statement";
 export { PageTransition } from "./page-transition";
 export { PageTransitionWrapper } from "./page-transition-wrapper";
 export { InteractiveGradientBackground } from "./interactive-gradient-background";

@@ -1,5 +1,6 @@
 import TeamSection from '@/components/team';
 import { PageLayout } from '@/components';
+import StickyFooter from '@/components/footer';
 
 export const metadata = {
   title: 'Team - Project Phoenix',
@@ -8,8 +9,11 @@ export const metadata = {
 
 export default function TeamPage() {
   return (
-    <PageLayout>
-      <TeamSection />
-    </PageLayout>
+    <>
+      <PageLayout>
+        <TeamSection />
+      </PageLayout>
+      <StickyFooter />
+    </>
   );
 }
