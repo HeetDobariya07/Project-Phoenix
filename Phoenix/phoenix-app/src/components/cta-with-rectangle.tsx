@@ -13,7 +13,7 @@ interface CTAProps {
   action: {
     text: string
     href: string
-    variant?: "default" | "glow"
+    variant?: "default" | "outline" | "secondary" | "destructive" | "ghost" | "link"
   }
   withGlow?: boolean
   className?: string
