@@ -29,7 +29,7 @@ const processSteps = [
       }
     ],
     image: {
-      src: "/api/placeholder/800/600",
+      src: "/images/About/Test_v0.1.png",
       alt: "Data preprocessing pipeline"
     },
     learnMoreLink: "/preprocessing"

@@ -2,12 +2,18 @@
 
 import { PageLayout } from "@/components";
 import StickyFooter from "@/components/footer";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export default function ModelTraining() {
   return (
     <>
       <PageLayout>
         <div className="container mx-auto px-4 py-20">
+          <Link href="/about" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 transition-colors">
+            <ArrowLeft className="w-5 h-5" />
+            <span style={{ fontFamily: "var(--font-poppins)" }}>Back to About</span>
+          </Link>
           <h1 className="text-6xl font-bold mb-8 text-white" style={{ fontFamily: "var(--font-michroma)" }}>
             Model Fine-Tuning
           </h1>
