@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -79,50 +80,82 @@ export function FeatureShowcase({
   learnMoreLink = "#",
   className,
 }: FeatureShowcaseProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [cardStyle, setCardStyle] = useState<React.CSSProperties>({});
+
+  // Mouse move handler for 3D effect
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+
+    const { left, top, width, height } = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - left;
+    const y = e.clientY - top;
+
+    const rotateX = (y - height / 2) / (height / 2) * -8;
+    const rotateY = (x - width / 2) / (width / 2) * 8;
+
+    setCardStyle({
+      transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`,
+      transition: "transform 0.1s ease-out",
+    });
+  };
+
+  // Mouse leave handler to reset
+  const handleMouseLeave = () => {
+    setCardStyle({
+      transform: "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)",
+      transition: "transform 0.4s ease-in-out",
+    });
+  };
 
   return (
     <section className={cn("w-full bg-transparent text-white", className)}>
       <div className={cn(
-        "container mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-16 md:grid-cols-12 md:py-20 lg:gap-14",
+        "container mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-8 md:gap-10 md:px-6 md:py-16 lg:py-20 md:grid-cols-12 lg:gap-14",
         flip && "md:grid-flow-dense"
       )}>
         {/* Image column (now on left) */}
         <div className={cn("md:col-span-6", flip && "md:col-start-7")}>
           <Card
-            className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-0 shadow-sm"
-            style={{ height: panelMinHeight, minHeight: panelMinHeight }}
+            ref={cardRef}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{ minHeight: panelMinHeight * 0.6, ...cardStyle }}
+            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-0 shadow-sm cursor-pointer"
           >
-            <img
-              src={image.src}
-              alt={image.alt ?? title}
-              className="h-full w-full object-cover"
-              loading="eager"
-            />
+            <div className="h-full w-full md:h-[600px]" style={{ minHeight: panelMinHeight * 0.6 }}>
+              <img
+                src={image.src}
+                alt={image.alt ?? title}
+                className="h-full w-full object-contain md:object-cover"
+                loading="eager"
+              />
+            </div>
           </Card>
         </div>
 
         {/* Text column (now on right) */}
         <div className={cn("md:col-span-6", flip && "md:col-start-1 md:row-start-1")}>
-          <Badge variant="outline" className="mb-6 border-white/20 text-white">
+          <Badge variant="outline" className="mb-3 md:mb-6 border-white/20 text-white text-xs md:text-sm">
             {eyebrow}
           </Badge>
 
-          <h2 className="text-balance text-4xl font-bold leading-[0.95] sm:text-5xl md:text-6xl" style={{ fontFamily: "var(--font-michroma)" }}>
+          <h2 className="text-balance text-2xl font-bold leading-tight sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl md:leading-[0.95]" style={{ fontFamily: "var(--font-michroma)" }}>
             {title}
           </h2>
 
           {description ? (
-            <p className="mt-6 max-w-xl text-white/70" style={{ fontFamily: "var(--font-poppins)" }}>{description}</p>
+            <p className="mt-3 md:mt-6 max-w-xl text-sm md:text-base text-white/70" style={{ fontFamily: "var(--font-poppins)" }}>{description}</p>
           ) : null}
 
           {/* Stats chips */}
           {stats.length > 0 && (
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-3 md:mt-6 flex flex-wrap gap-2">
               {stats.map((s, i) => (
                 <Badge
                   key={i}
                   variant="secondary"
-                  className="bg-white/10 text-white border-white/20"
+                  className="bg-white/10 text-white border-white/20 text-xs"
                 >
                   {s}
                 </Badge>
@@ -131,11 +164,11 @@ export function FeatureShowcase({
           )}
 
           {/* Steps (Accordion) */}
-          <div className="mt-10 max-w-xl">
+          <div className="mt-6 md:mt-10 max-w-xl">
             <Accordion type="single" collapsible className="w-full">
               {steps.map((step) => (
                 <AccordionItem key={step.id} value={step.id} className="border-white/10">
-                  <AccordionTrigger className="text-left text-base font-medium text-white hover:text-white/80" style={{ fontFamily: "var(--font-poppins)" }}>
+                  <AccordionTrigger className="text-left text-sm md:text-base font-medium text-white hover:text-white/80" style={{ fontFamily: "var(--font-poppins)" }}>
                     {step.title}
                   </AccordionTrigger>
                   <AccordionContent className="text-sm text-white/60" style={{ fontFamily: "var(--font-poppins)" }}>
@@ -146,15 +179,15 @@ export function FeatureShowcase({
             </Accordion>
 
             {/* CTAs */}
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="bg-white text-black hover:bg-white/90">
+            <div className="mt-6 md:mt-8 flex flex-wrap gap-3">
+              <Button asChild size="default" className="bg-white text-black hover:bg-white/90 md:text-base md:px-6 md:py-2 md:h-11">
                 <Link href={learnMoreLink}>Learn More</Link>
               </Button>
               <Button
                 asChild
-                size="lg"
+                size="default"
                 variant="secondary"
-                className="border border-white/20 bg-white/5 text-white hover:bg-white/10"
+                className="border border-white/20 bg-white/5 text-white hover:bg-white/10 md:text-base md:px-6 md:py-2 md:h-11"
               >
                 <Link href="#examples">Github</Link>
               </Button>

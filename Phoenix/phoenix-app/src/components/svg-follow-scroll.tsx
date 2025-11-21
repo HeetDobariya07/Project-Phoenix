@@ -132,22 +132,29 @@ const Skiper19 = () => {
   return (
     <section
       ref={ref}
-      className="relative mx-auto flex h-[550vh] w-screen flex-col items-center overflow-visible bg-transparent px-4 text-white"
+      className="relative mx-auto flex h-auto md:h-[550vh] w-screen flex-col items-center overflow-visible bg-transparent px-4 text-white"
     >
+      {/* Desktop SVG Line */}
       <LinePath
-        className="absolute left-1/2 -translate-x-1/2 top-0 z-0 w-[90vw] max-w-[1200px]"
+        className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 z-0 w-[90vw] max-w-[1200px]"
         scrollYProgress={scrollYProgress}
       />
-      <div className="mt-42 relative flex w-fit flex-col items-center justify-center gap-5 text-center mb-32">
-        <h1 className="relative z-10 text-7xl font-medium tracking-[-0.08em] lg:text-9xl" style={{ fontFamily: "var(--font-michroma)" }}>
+      
+      {/* Mobile SVG Line */}
+      <MobileLinePath
+        className="md:hidden absolute left-1/2 -translate-x-1/2 top-0 z-0 w-[90vw]"
+        scrollYProgress={scrollYProgress}
+      />
+      <div className="mt-16 md:mt-42 relative flex w-full max-w-[95vw] mx-auto flex-col items-center justify-center gap-3 md:gap-5 text-center mb-12 md:mb-32 z-10 px-2">
+        <h1 className="relative z-10 text-5xl sm:text-6xl md:text-8xl font-medium tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.4em] lg:text-9xl leading-tight" style={{ fontFamily: "var(--font-michroma)" }}>
           ABOUT
         </h1>
       </div>
 
       {/* Introduction paragraph */}
-      <div className="absolute top-[50vh] w-full z-10 px-4">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <p className="text-xl text-white/80 leading-relaxed font-medium" style={{ fontFamily: "var(--font-poppins)" }}>
+      <div className="relative md:absolute md:top-[50vh] w-full z-10 px-4 mb-12 md:mb-0 mt-4 md:mt-0">
+        <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6">
+          <p className="text-sm sm:text-base md:text-xl text-white/80 leading-relaxed font-medium" style={{ fontFamily: "var(--font-poppins)" }}>
             Project Phoenix reimagines cervical cancer cell classification with a fully transparent AI pipeline.
 The journey begins with high-quality data preprocessing, ensuring clean and reliable cytology inputs. We then fine-tune advanced deep learning models to recognize subtle cellular patterns with precision. Every prediction is made interpretable through explainability techniques that reveal the features driving the model’s decisions. Finally, rigorous performance evaluation demonstrates not only how accurately the system works — but why its judgments can be trusted.
           </p>
@@ -159,10 +166,33 @@ The journey begins with high-quality data preprocessing, ensuring clean and reli
       </div>
 
       {/* Feature showcases at each curve */}
+      {/* Mobile wrapper with spacing */}
+      <div className="relative w-full space-y-8 md:hidden">
+      {processSteps.map((step, index) => (
+        <div key={index} className="relative w-full z-10 px-4">
+          <div className="max-w-6xl mx-auto">
+            <FeatureShowcase
+              eyebrow={`Step ${index + 1}`}
+              title={step.title}
+              description={step.description}
+              stats={step.stats}
+              steps={step.steps}
+              image={step.image}
+              learnMoreLink={step.learnMoreLink}
+              panelMinHeight={600}
+              className="bg-transparent"
+              flip={step.position === "left"}
+            />
+          </div>
+        </div>
+      ))}
+      </div>
+      
+      {/* Desktop absolute positioned cards */}
       {processSteps.map((step, index) => (
         <div
           key={index}
-          className={`absolute ${step.yPosition} w-full z-10 px-4 md:px-8`}
+          className={`hidden md:block absolute ${step.yPosition} w-full z-10 px-8`}
         >
           <div className={`max-w-6xl mx-auto ${step.position === "left" ? "mr-auto" : "ml-auto"}`}>
             <FeatureShowcase
@@ -201,7 +231,6 @@ const LinePath = ({
       height="550vh"
       viewBox="0 0 1000 5000"
       fill="none"
-      overflow="visible"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       preserveAspectRatio="xMidYMin meet"
@@ -209,8 +238,45 @@ const LinePath = ({
     >
       <motion.path
         d="M500 0 C550 50, 600 100, 700 200 C850 350, 900 500, 800 700 C700 900, 500 1000, 300 1200 C100 1400, 150 1600, 350 1800 C550 2000, 750 2100, 850 2300 C950 2500, 900 2700, 700 2900 C500 3100, 300 3300, 400 3600 C500 3900, 650 4200, 750 4500 C850 4800, 700 4900, 500 5000"
-        stroke="rgba(255, 255, 255, 1)"
-        strokeWidth="18"
+        stroke="rgba(255, 255, 255, 0.9)"
+        strokeWidth="30"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeDasharray="1"
+        strokeDashoffset="1"
+        style={{
+          pathLength,
+        }}
+      />
+    </svg>
+  );
+};
+
+const MobileLinePath = ({
+  className,
+  scrollYProgress,
+}: {
+  className: string;
+  scrollYProgress: any;
+}) => {
+  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  return (
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 1000 3000"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      preserveAspectRatio="none"
+      style={{ pointerEvents: 'none', minHeight: '100%' }}
+    >
+      <motion.path
+        d="M900 0 C850 150, 900 300, 950 500 C980 750, 930 950, 850 1200 C750 1450, 900 1650, 950 1900 C970 2100, 910 2300, 850 2500 C800 2700, 850 2850, 900 3000"
+        stroke="rgba(255, 255, 255, 0.9)"
+        strokeWidth="30"
         fill="none"
         strokeLinecap="round"
         strokeLinejoin="round"

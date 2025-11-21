@@ -1,5 +1,22 @@
 "use client"
 
+import * as React from "react"
+
+// Declare the custom element type for TypeScript
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'pixel-canvas': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        'data-gap'?: number
+        'data-speed'?: number
+        'data-colors'?: string
+        'data-variant'?: string
+        'data-no-focus'?: string
+      }
+    }
+  }
+}
+
 // Сначала определяем класс Pixel
 class Pixel {
   width: number
@@ -38,13 +55,13 @@ class Pixel {
     this.color = color
     this.speed = this.getRandomValue(0.1, 0.9) * speed
     this.size = 0
-    this.sizeStep = Math.random() * 0.4
+    this.sizeStep = Math.random() * 0.6 + 0.3
     this.minSize = 0.5
     this.maxSizeInteger = 2
     this.maxSize = this.getRandomValue(this.minSize, this.maxSizeInteger)
     this.delay = delay
     this.counter = 0
-    this.counterStep = Math.random() * 4 + (this.width + this.height) * 0.01
+    this.counterStep = Math.random() * 2 + (this.width + this.height) * 0.005
     this.isIdle = false
     this.isReverse = false
     this.isShimmer = false
@@ -127,6 +144,9 @@ class PixelCanvasElement extends HTMLElement {
   private _initialized: boolean = false
   private _resizeObserver: ResizeObserver | null = null
   private _parent: Element | null = null
+  private mouseX: number = 0
+  private mouseY: number = 0
+  private isMouseInside: boolean = false
 
   constructor() {
     super()
@@ -151,7 +171,7 @@ class PixelCanvasElement extends HTMLElement {
   }
 
   get colors() {
-    return this.dataset.colors?.split(",") || ["#f8fafc", "#f1f5f9", "#cbd5e1"]
+    return this.dataset.colors?.split(",") || ["#ffa200ff", "#d8ae4bff", "#9c6801ff"]
   }
 
   get gap() {
@@ -191,9 +211,17 @@ class PixelCanvasElement extends HTMLElement {
     this._parent?.addEventListener("mouseenter", () =>
       this.handleAnimation("appear"),
     )
-    this._parent?.addEventListener("mouseleave", () =>
-      this.handleAnimation("disappear"),
-    )
+    this._parent?.addEventListener("mouseleave", () => {
+      this.isMouseInside = false
+      this.handleAnimation("disappear")
+    })
+    this._parent?.addEventListener("mousemove", (e: Event) => {
+      this.isMouseInside = true
+      const rect = this.getBoundingClientRect()
+      const mouseEvent = e as MouseEvent
+      this.mouseX = mouseEvent.clientX - rect.left
+      this.mouseY = mouseEvent.clientY - rect.top
+    })
 
     if (!this.noFocus) {
       this._parent?.addEventListener(
@@ -265,6 +293,11 @@ class PixelCanvasElement extends HTMLElement {
   }
 
   getDistanceToBottomLeft(x: number, y: number) {
+    if (this.isMouseInside && this.mouseX && this.mouseY) {
+      const dx = x - this.mouseX
+      const dy = y - this.mouseY
+      return Math.sqrt(dx * dx + dy * dy)
+    }
     const dx = x
     const dy = this.canvas.height - y
     return Math.sqrt(dx * dx + dy * dy)
@@ -328,7 +361,6 @@ class PixelCanvasElement extends HTMLElement {
 }
 
 // React-компонент обертка
-import * as React from "react"
 
 export interface PixelCanvasProps extends React.HTMLAttributes<HTMLDivElement> {
   gap?: number
@@ -349,8 +381,10 @@ const PixelCanvas = React.forwardRef<HTMLDivElement, PixelCanvasProps>(
       }
     }, [])
 
+    const PixelCanvasElement = 'pixel-canvas' as any
+
     return (
-      <pixel-canvas
+      <PixelCanvasElement
         ref={ref}
         data-gap={gap}
         data-speed={speed}
