@@ -32,7 +32,8 @@ const processSteps = [
       src: "/images/About/Image Preprocesing_v0.1.jpg",
       alt: "Data preprocessing pipeline"
     },
-    learnMoreLink: "/preprocessing"
+    learnMoreLink: "/preprocessing",
+    githubLink: "https://github.com/Meet2304/Project-Phoenix/tree/main/Image%20Preprocessing"
   },
   {
     position: "left",
@@ -179,6 +180,7 @@ The journey begins with high-quality data preprocessing, ensuring clean and reli
               steps={step.steps}
               image={step.image}
               learnMoreLink={step.learnMoreLink}
+              githubLink={step.githubLink}
               panelMinHeight={600}
               className="bg-transparent"
               flip={step.position === "left"}
@@ -203,6 +205,7 @@ The journey begins with high-quality data preprocessing, ensuring clean and reli
               steps={step.steps}
               image={step.image}
               learnMoreLink={step.learnMoreLink}
+              githubLink={step.githubLink}
               panelMinHeight={600}
               className="bg-transparent"
               flip={step.position === "left"}

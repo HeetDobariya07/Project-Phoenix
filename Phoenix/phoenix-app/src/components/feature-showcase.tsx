@@ -46,6 +46,8 @@ export type FeatureShowcaseProps = {
   flip?: boolean;
   /** link for Learn More button */
   learnMoreLink?: string;
+  /** link for GitHub button */
+  githubLink?: string;
   className?: string;
 };
 
@@ -78,6 +80,7 @@ export function FeatureShowcase({
   panelMinHeight = 720,
   flip = false,
   learnMoreLink = "#",
+  githubLink = "#examples",
   className,
 }: FeatureShowcaseProps) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -189,7 +192,7 @@ export function FeatureShowcase({
                 variant="secondary"
                 className="border border-white/20 bg-white/5 text-white hover:bg-white/10 md:text-base md:px-6 md:py-2 md:h-11"
               >
-                <Link href="#examples">Github</Link>
+                <Link href={githubLink} target="_blank" rel="noopener noreferrer">Github</Link>
               </Button>
             </div>
           </div>
