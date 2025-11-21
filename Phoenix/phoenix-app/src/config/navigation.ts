@@ -11,7 +11,7 @@
  * 3. Ensure the href matches your page route in the app directory
  */
 
-import { Home, Info, Users, type LucideIcon } from "lucide-react";
+import { Home, Info, Users, Brain, type LucideIcon } from "lucide-react";
 
 /**
  * Navigation Item Interface
@@ -44,6 +44,12 @@ export const NAV_ITEMS: readonly NavigationItem[] = [
     icon: Info,
     href: "/about",
     description: "Learn about Project Phoenix",
+  },
+  {
+    label: "Inference",
+    icon: Brain,
+    href: "/inference",
+    description: "Run model inference on Hugging Face",
   },
   {
     label: "Team",
