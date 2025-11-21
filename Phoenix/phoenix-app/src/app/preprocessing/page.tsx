@@ -214,7 +214,7 @@ export default function Preprocessing() {
       <PageLayout>
         <div className="container mx-auto px-3 sm:px-4 md:px-6 py-12 md:py-16 lg:py-20">
           {/* Back Button */}
-          <Link href="/about" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-6 md:mb-8 transition-colors">
+          <Link href="/about" className="inline-flex items-center gap-2 text-white hover:text-white/80 mb-6 md:mb-8 transition-colors">
             <ArrowLeft className="w-4 h-4 md:w-5 md:h-5" />
             <span className="text-sm md:text-base" style={{ fontFamily: "var(--font-poppins)" }}>Back to About</span>
           </Link>
@@ -223,7 +223,7 @@ export default function Preprocessing() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 text-white" style={{ fontFamily: "var(--font-michroma)" }}>
             Data Preprocessing
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-white/70 mb-12 md:mb-16 max-w-3xl" style={{ fontFamily: "var(--font-playfair)" }}>
+          <p className="text-base sm:text-lg md:text-xl text-white/80 mb-12 md:mb-16 max-w-3xl" style={{ fontFamily: "var(--font-playfair)" }}>
             Advanced image preprocessing pipeline using Non-Local Means Denoising and CLAHE enhancement 
             to optimize cervical cell images for accurate classification.
           </p>

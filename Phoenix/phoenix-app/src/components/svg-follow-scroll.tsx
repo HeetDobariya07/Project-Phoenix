@@ -92,7 +92,8 @@ const processSteps = [
       src: "/images/About/Model Explanability_v0.6.jpg",
       alt: "Explainability visualization"
     },
-    learnMoreLink: "/explainability"
+    learnMoreLink: "/explainability",
+    githubLink: "https://github.com/Meet2304/Project-Phoenix/tree/main/Explainability%20Workflows"
   },
   {
     position: "left",

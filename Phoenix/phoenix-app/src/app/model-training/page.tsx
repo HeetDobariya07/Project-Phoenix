@@ -122,7 +122,7 @@ export default function ModelTraining() {
     <>
       <PageLayout>
         <div className="container mx-auto px-3 md:px-6 py-12 md:py-20">
-          <Link href="/about" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-6 md:mb-8 transition-colors">
+          <Link href="/about" className="inline-flex items-center gap-2 text-white hover:text-white/80 mb-6 md:mb-8 transition-colors">
             <ArrowLeft className="w-4 h-4 md:w-5 md:h-5" />
             <span className="text-sm md:text-base" style={{ fontFamily: "var(--font-poppins)" }}>Back to About</span>
           </Link>
@@ -130,7 +130,7 @@ export default function ModelTraining() {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-white" style={{ fontFamily: "var(--font-michroma)" }}>
             Model Fine-Tuning
           </h1>
-          <p className="text-sm md:text-base lg:text-lg text-white/70 mb-8 md:mb-12 max-w-3xl" style={{ fontFamily: "var(--font-poppins)" }}>
+          <p className="text-sm md:text-base lg:text-lg text-white/80 mb-8 md:mb-12 max-w-3xl" style={{ fontFamily: "var(--font-poppins)" }}>
             Transfer learning with state-of-the-art architectures for cervical cell classification
           </p>
 
@@ -276,7 +276,7 @@ export default function ModelTraining() {
           </h2>
 
           {/* ConvNeXt Metrics */}
-          <div className="mb-8 md:mb-12">
+          <div className="mb-16 md:mb-20">
             <h3 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6" style={{ fontFamily: "var(--font-michroma)" }}>
               ConvNeXt V2 Metrics
             </h3>
@@ -321,7 +321,7 @@ export default function ModelTraining() {
           </div>
 
           {/* EfficientNet Metrics */}
-          <div className="mb-12 md:mb-16">
+          <div className="mb-16 md:mb-20">
             <h3 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6" style={{ fontFamily: "var(--font-michroma)" }}>
               EfficientNet V2-S Metrics
             </h3>
