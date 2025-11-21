@@ -16,7 +16,7 @@ const cellClasses = [
     name: "Dyskeratotic",
     description: "Abnormal cells with irregular keratinization",
     originalImage: "/images/Preprocessing/Dyskeratotic_processed.bmp",
-    processedImage: "/images/Preprocessing/Dyskeratotic_original.bmp",
+    processedImage: "/images/Preprocessing/Dyskeratotic_Original.bmp",
     metrics: {
       psnr: "28.45 dB",
       ssim: "0.892",
@@ -28,7 +28,7 @@ const cellClasses = [
     name: "Koilocytotic",
     description: "Cells showing HPV-induced changes with perinuclear halos",
     originalImage: "/images/Preprocessing/Koilocytotic_processed.bmp",
-    processedImage: "/images/Preprocessing/Koilocytotic_original.bmp",
+    processedImage: "/images/Preprocessing/Koilocytotic_Original.bmp",
     metrics: {
       psnr: "29.12 dB",
       ssim: "0.905",
@@ -40,7 +40,7 @@ const cellClasses = [
     name: "Metaplastic",
     description: "Cells undergoing transformation from one type to another",
     originalImage: "/images/Preprocessing/Metaplastic_processed.bmp",
-    processedImage: "/images/Preprocessing/Metaplastic_original.bmp",
+    processedImage: "/images/Preprocessing/Metaplastic_Original.bmp",
     metrics: {
       psnr: "27.89 dB",
       ssim: "0.878",
@@ -52,7 +52,7 @@ const cellClasses = [
     name: "Parabasal",
     description: "Small, round cells from the basal layer",
     originalImage: "/images/Preprocessing/Parabasal_processed.bmp",
-    processedImage: "/images/Preprocessing/Parabasal_original.bmp",
+    processedImage: "/images/Preprocessing/Parabasal_Original.bmp",
     metrics: {
       psnr: "30.23 dB",
       ssim: "0.918",
