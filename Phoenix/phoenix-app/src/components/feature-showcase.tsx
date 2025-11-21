@@ -139,7 +139,7 @@ export function FeatureShowcase({
                     {step.title}
                   </AccordionTrigger>
                   <AccordionContent className="text-sm text-white/60" style={{ fontFamily: "var(--font-poppins)" }}>
-                    {step.text}
+                    <div dangerouslySetInnerHTML={{ __html: step.text }} className="[&_a]:text-white/90 [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-white" />
                   </AccordionContent>
                 </AccordionItem>
               ))}

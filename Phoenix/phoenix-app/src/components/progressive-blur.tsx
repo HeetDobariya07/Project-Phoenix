@@ -12,7 +12,7 @@ const ProgressiveBlur = ({
   className = "",
   backgroundColor = "#f5f4f3",
   position = "top",
-  height = "150px",
+  height = "120px",
   blurAmount = "4px",
 }: ProgressiveBlurProps) => {
   const isTop = position === "top";

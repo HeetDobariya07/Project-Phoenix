@@ -14,22 +14,22 @@ const processSteps = [
     steps: [
       {
         id: "preprocessing-1",
-        title: "Image Acquisition",
-        text: "High-resolution cervical cell images captured through microscopy imaging systems."
+        title: "Where did we get the images from?",
+        text: `Our pipeline begins with high-quality cytology images sourced from two benchmark datasets — the <a href="https://www.kaggle.com/datasets/prahladmehandiratta/cervical-cancer-largest-dataset-sipakmed" target="_blank" rel="noopener noreferrer">SIPaKMeD dataset</a> and the <a href="https://www.kaggle.com/datasets/yuvrajsinhachowdhury/herlev-dataset/data" target="_blank" rel="noopener noreferrer">Herlev dataset</a>. These collections provide diverse, expertly labeled cervical cell images that form the foundation for reliable preprocessing, model training, and explainable AI development.`
       },
       {
         id: "preprocessing-2",
-        title: "Enhancement Pipeline",
-        text: "Apply contrast adjustment, color normalization, and artifact removal to improve image quality."
+        title: "How did we improve the images?",
+        text: "We cleaned noise using Non-Local Means (NLM), enhanced brightness and contrast using CLAHE, and normalized the colors so the cell images became clearer, sharper, and more consistent for training."
       },
       {
         id: "preprocessing-3",
-        title: "Data Augmentation",
-        text: "Generate diverse training samples through rotation, flipping, and scaling transformations."
+        title: "What data augmentation techniques did we use?",
+        text: "We used rotations, flips, zooming, shifting, and light color variations to make the model learn from many different versions of each cell image."
       }
     ],
     image: {
-      src: "/images/About/Test_v0.1.png",
+      src: "/images/About/Image Preprocesing_v0.1.jpg",
       alt: "Data preprocessing pipeline"
     },
     learnMoreLink: "/preprocessing"
@@ -43,22 +43,22 @@ const processSteps = [
     steps: [
       {
         id: "training-1",
-        title: "Architecture Selection",
-        text: "ConvNeXt model chosen for superior performance in medical image classification tasks."
+        title: "Which pre-trained backbones did we choose?",
+        text: "We built our models on EfficientNetV2-S and ConvNeXt, two state-of-the-art backbones known for capturing subtle cellular details with exceptional clarity."
       },
       {
         id: "training-2",
-        title: "Fine-Tuning Strategy",
-        text: "Progressive unfreezing and layer-wise learning rate optimization for domain adaptation."
+        title: "How did we fine-tune the model?",
+        text: "We fine-tuned the higher layers on our cleaned and augmented SIPaKMeD + Herlev dataset, allowing the models to learn nucleus boundaries, cytoplasm textures, and cell-type specific visual cues."
       },
       {
         id: "training-3",
-        title: "Validation & Testing",
-        text: "Rigorous cross-validation ensuring model generalization across diverse cell populations."
+        title: "How did we validate and test the model?",
+        text: "We validated using stratified splits across both datasets and tested on held-out samples to ensure the models generalize across staining variations, microscope settings, and cell subtypes."
       }
     ],
     image: {
-      src: "/api/placeholder/800/600",
+      src: "/images/About/Model Finetuning_v0.1.jpg",
       alt: "Model fine-tuning process"
     },
     learnMoreLink: "/model-training"
@@ -72,22 +72,22 @@ const processSteps = [
     steps: [
       {
         id: "explain-1",
-        title: "Activation Mapping",
-        text: "Visualize which regions of the cell influenced the classification decision."
+        title: "How does our model reveal the features it uses to classify cervical cells?",
+        text: "We combine Concept-Guided Attention Maps (CGAM), SHAP, and nuclear segmentation masks to highlight the exact nuclear borders, cytoplasmic regions, and texture cues driving each prediction."
       },
       {
         id: "explain-2",
-        title: "Feature Importance",
-        text: "Identify key cellular characteristics that drive model predictions."
+        title: "How do we ensure the explanations align with real cytology concepts?",
+        text: "We anchor the model’s explanations to biologically meaningful nuclear features—like nuclear enlargement, hyperchromasia, and boundary irregularity—using segmentation masks as precise structural guides."
       },
       {
         id: "explain-3",
-        title: "Clinical Validation",
-        text: "Align AI insights with pathologist expertise for reliable diagnostic support."
+        title: "How do we compare explanations across different models?",
+        text: "We generate side-by-side explanation panels using attention maps, SHAP overlays, and segmentation masks to see how EfficientNetV2-S and ConvNeXt differ in highlighting clinically relevant regions."
       }
     ],
     image: {
-      src: "/api/placeholder/800/600",
+      src: "/images/About/Model Explanability_v0.6.jpg",
       alt: "Explainability visualization"
     },
     learnMoreLink: "/explainability"
@@ -101,22 +101,22 @@ const processSteps = [
     steps: [
       {
         id: "eval-1",
-        title: "Accuracy Metrics",
-        text: "Precision, recall, F1-score across all five cervical cell classifications."
+        title: "How do we measure how well the model identifies different cervical cell types?",
+        text: "We evaluate performance using accuracy, F1-score, and class-wise precision/recall, ensuring the model reliably distinguishes normal, abnormal, and borderline cell classes across both datasets."
       },
       {
         id: "eval-2",
-        title: "Clinical Validation",
-        text: "Benchmark against expert pathologist annotations for real-world reliability."
+        title: "How do we assess whether the model generalizes across staining styles and microscope variations?",
+        text: "We test on held-out samples from SIPaKMeD and Herlev, checking consistency across different color tones, imaging conditions, and morphological variations."
       },
       {
         id: "eval-3",
-        title: "Continuous Monitoring",
-        text: "Track model performance over time with ongoing evaluation and refinement."
+        title: "How do we verify that high performance aligns with meaningful explanations?",
+        text: "We pair metric evaluation with explanation-quality checks—comparing SHAP, attention maps, and nuclear segmentation masks to confirm the model focuses on real cytological structures, not noise."
       }
     ],
     image: {
-      src: "/api/placeholder/800/600",
+      src: "/images/About/Performance Eval_v0.1.jpg",
       alt: "Performance evaluation metrics"
     },
     learnMoreLink: "/evaluation"
@@ -142,23 +142,19 @@ const Skiper19 = () => {
         <h1 className="relative z-10 text-7xl font-medium tracking-[-0.08em] lg:text-9xl" style={{ fontFamily: "var(--font-michroma)" }}>
           ABOUT
         </h1>
-        <p className="relative z-10 max-w-2xl text-xl font-medium text-white/80" style={{ fontFamily: "var(--font-poppins)" }}>
-          Scroll down to explore our mission
-        </p>
       </div>
 
       {/* Introduction paragraph */}
       <div className="absolute top-[50vh] w-full z-10 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <p className="text-xl text-white/80 leading-relaxed font-medium" style={{ fontFamily: "var(--font-poppins)" }}>
-            Project Phoenix leverages cutting-edge deep learning to revolutionize cervical cancer detection. 
-            Our innovative approach combines advanced image preprocessing, state-of-the-art ConvNeXt architecture, 
-            and explainable AI techniques to provide accurate, trustworthy diagnostic support for medical professionals.
+            Project Phoenix reimagines cervical cancer cell classification with a fully transparent AI pipeline.
+The journey begins with high-quality data preprocessing, ensuring clean and reliable cytology inputs. We then fine-tune advanced deep learning models to recognize subtle cellular patterns with precision. Every prediction is made interpretable through explainability techniques that reveal the features driving the model’s decisions. Finally, rigorous performance evaluation demonstrates not only how accurately the system works — but why its judgments can be trusted.
           </p>
-          <p className="text-lg text-white/70 leading-relaxed" style={{ fontFamily: "var(--font-poppins)" }}>
+          {/* <p className="text-lg text-white/70 leading-relaxed" style={{ fontFamily: "var(--font-poppins)" }}>
             Through meticulous data preprocessing, transfer learning with ConvNeXt models, and transparent explainability features, 
             we empower healthcare professionals with reliable AI-driven insights for improved patient outcomes in cervical cancer screening.
-          </p>
+          </p> */}
         </div>
       </div>
 
@@ -213,7 +209,7 @@ const LinePath = ({
     >
       <motion.path
         d="M500 0 C550 50, 600 100, 700 200 C850 350, 900 500, 800 700 C700 900, 500 1000, 300 1200 C100 1400, 150 1600, 350 1800 C550 2000, 750 2100, 850 2300 C950 2500, 900 2700, 700 2900 C500 3100, 300 3300, 400 3600 C500 3900, 650 4200, 750 4500 C850 4800, 700 4900, 500 5000"
-        stroke="rgba(255, 255, 255, 0.9)"
+        stroke="rgba(255, 255, 255, 1)"
         strokeWidth="18"
         fill="none"
         strokeLinecap="round"
