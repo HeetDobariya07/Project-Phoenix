@@ -79,7 +79,7 @@ export default function TeamSection() {
                     >
                         OUR DREAM TEAM
                     </h1>
-                    <p className="text-white/80 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl" style={{ fontFamily: "var(--font-poppins)" }}>
+                    <p className="text-white/80 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl" style={{ fontFamily: "var(--font-playfair)" }}>
                         A dedicated team of researchers and developers working together to revolutionize 
                         cervical cancer cell classification using advanced AI and explainable machine learning techniques.
                     </p>

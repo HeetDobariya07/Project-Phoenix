@@ -145,7 +145,7 @@ export function FeatureShowcase({
           </h2>
 
           {description ? (
-            <p className="mt-3 md:mt-6 max-w-xl text-sm md:text-base text-white/70" style={{ fontFamily: "var(--font-poppins)" }}>{description}</p>
+            <p className="mt-3 md:mt-6 max-w-xl text-sm md:text-base text-white/70" style={{ fontFamily: "var(--font-playfair)" }}>{description}</p>
           ) : null}
 
           {/* Stats chips */}
@@ -168,10 +168,10 @@ export function FeatureShowcase({
             <Accordion type="single" collapsible className="w-full">
               {steps.map((step) => (
                 <AccordionItem key={step.id} value={step.id} className="border-white/10">
-                  <AccordionTrigger className="text-left text-sm md:text-base font-medium text-white hover:text-white/80" style={{ fontFamily: "var(--font-poppins)" }}>
+                  <AccordionTrigger className="text-left text-sm md:text-base font-medium text-white hover:text-white/80" style={{ fontFamily: "var(--font-playfair)" }}>
                     {step.title}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-white/60" style={{ fontFamily: "var(--font-poppins)" }}>
+                  <AccordionContent className="text-sm text-white/60" style={{ fontFamily: "var(--font-playfair)" }}>
                     <div dangerouslySetInnerHTML={{ __html: step.text }} className="[&_a]:text-white/90 [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-white" />
                   </AccordionContent>
                 </AccordionItem>

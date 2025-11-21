@@ -39,7 +39,7 @@ const processSteps = [
     yPosition: "top-[200vh]",
     title: "Model Fine-Tuning",
     description: "Leverage transfer learning with state-of-the-art ConvNeXt architecture for precise cell classification.",
-    stats: ["Transfer Learning", "95%+ Accuracy", "Real-time Inference"],
+    stats: ["Transfer Learning", "95%+ Accuracy"],
     steps: [
       {
         id: "training-1",
@@ -154,9 +154,9 @@ const Skiper19 = () => {
       {/* Introduction paragraph */}
       <div className="relative md:absolute md:top-[50vh] w-full z-10 px-4 mb-12 md:mb-0 mt-4 md:mt-0">
         <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6">
-          <p className="text-sm sm:text-base md:text-xl text-white/80 leading-relaxed font-medium" style={{ fontFamily: "var(--font-poppins)" }}>
+          <p className="text-sm sm:text-base md:text-xl text-white/80 leading-relaxed font-medium" style={{ fontFamily: "var(--font-playfair)" }}>
             Project Phoenix reimagines cervical cancer cell classification with a fully transparent AI pipeline.
-The journey begins with high-quality data preprocessing, ensuring clean and reliable cytology inputs. We then fine-tune advanced deep learning models to recognize subtle cellular patterns with precision. Every prediction is made interpretable through explainability techniques that reveal the features driving the model’s decisions. Finally, rigorous performance evaluation demonstrates not only how accurately the system works — but why its judgments can be trusted.
+The journey begins with high-quality data preprocessing, ensuring clean and reliable cytology inputs. We then fine-tune advanced deep learning models to recognize subtle cellular patterns with precision. Every prediction is made interpretable through explainability techniques that reveal the features driving the model's decisions. Finally, rigorous performance evaluation demonstrates not only how accurately the system works — but why its judgments can be trusted.
           </p>
           {/* <p className="text-lg text-white/70 leading-relaxed" style={{ fontFamily: "var(--font-poppins)" }}>
             Through meticulous data preprocessing, transfer learning with ConvNeXt models, and transparent explainability features, 
@@ -274,7 +274,7 @@ const MobileLinePath = ({
       style={{ pointerEvents: 'none', minHeight: '100%' }}
     >
       <motion.path
-        d="M900 0 C850 150, 900 300, 950 500 C980 750, 930 950, 850 1200 C750 1450, 900 1650, 950 1900 C970 2100, 910 2300, 850 2500 C800 2700, 850 2850, 900 3000"
+        d="M200 0 C250 150, 200 300, 150 500 C100 750, 150 950, 250 1200 C350 1450, 200 1650, 150 1900 C120 2100, 180 2300, 250 2500 C300 2700, 250 2850, 200 3000"
         stroke="rgba(255, 255, 255, 0.9)"
         strokeWidth="30"
         fill="none"
