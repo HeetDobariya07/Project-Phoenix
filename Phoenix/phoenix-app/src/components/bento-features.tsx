@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
 function FeaturesSection() {
-  const spiralRef = useRef(null);
+  const spiralRef = useRef<HTMLDivElement>(null);
 
   const [cfg, setCfg] = useState({
     points: 800,
@@ -26,7 +26,7 @@ function FeaturesSection() {
   );
 
   useEffect(() => {
-    const onKey = (e) => {
+    const onKey = (e: KeyboardEvent) => {
       const k = e.key.toLowerCase();
       if (k === "r") randomize();
     };
@@ -60,7 +60,7 @@ function FeaturesSection() {
       g.setAttribute("y1", "0%");
       g.setAttribute("x2", "100%");
       g.setAttribute("y2", "100%");
-      gradients[cfg.gradient].forEach((color, idx, arr) => {
+      gradients[cfg.gradient as keyof typeof gradients].forEach((color: string, idx: number, arr: string[]) => {
         const stop = document.createElementNS(svgNS, "stop");
         stop.setAttribute("offset", `${(idx * 100) / (arr.length - 1)}%`);
         stop.setAttribute("stop-color", color);
@@ -111,7 +111,7 @@ function FeaturesSection() {
   }, [cfg, gradients]);
 
   function randomize() {
-    const rand = (min, max) => Math.random() * (max - min) + min;
+    const rand = (min: number, max: number) => Math.random() * (max - min) + min;
     const useBW = Math.random() > 0.4;
     setCfg((c) => ({
       ...c,
@@ -186,7 +186,7 @@ function FeaturesSection() {
   );
 }
 
-function BentoCard({ span = "", title, blurb, meta }) {
+function BentoCard({ span = "", title, blurb, meta }: { span?: string; title: string; blurb: string; meta?: string }) {
   return (
     <article
       className={`group relative overflow-hidden rounded-2xl border border-white/15 bg-black/40 p-5 transition hover:border-white/40 ${span}`}
