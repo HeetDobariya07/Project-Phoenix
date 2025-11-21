@@ -186,8 +186,8 @@ function BentoCard({ span = "", title, blurb, meta, children, className = "" }: 
       whileHover={{ scale: 1.02, y: -4 }}
       transition={{ duration: 0.2 }}
       className={cn(
-        "group relative overflow-hidden rounded-xl md:rounded-2xl border border-white/80 bg-[rgba(255,255,255,0.12)] backdrop-blur p-4 md:p-5 lg:p-6 transition-all hover:border-white hover:shadow-xl hover:shadow-white/10 cursor-pointer",
-        "before:absolute before:inset-0 before:z-0 before:opacity-80 before:pointer-events-none before:bg-[url('/noise.png')] before:bg-repeat before:bg-[length:60px_60px]",
+        "group relative overflow-hidden rounded-xl md:rounded-2xl border-2 border-white/20 bg-black/40 backdrop-blur p-4 md:p-5 lg:p-6 transition-all hover:border-white/40 hover:shadow-xl hover:shadow-white/10 cursor-pointer",
+        "before:absolute before:inset-0 before:z-0 before:opacity-100 before:pointer-events-none before:bg-[url('/noise.png')] before:bg-repeat before:bg-[length:60px_60px]",
         span,
         className
       )}

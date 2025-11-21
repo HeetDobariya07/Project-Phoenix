@@ -62,7 +62,8 @@ const processSteps = [
       src: "/images/About/Model Finetuning_v0.1.jpg",
       alt: "Model fine-tuning process"
     },
-    learnMoreLink: "/model-training"
+    learnMoreLink: "/model-training",
+    githubLink: "https://github.com/Meet2304/Project-Phoenix/tree/main/Fine%20Tuning"
   },
   {
     position: "right",
