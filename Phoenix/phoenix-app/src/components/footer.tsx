@@ -1,5 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 // Animation variants for reusability
 const containerVariants = {
@@ -83,29 +84,38 @@ const NavSection = ({ title, links, index }: { title: string; links: { name: str
     >
       {title}
     </motion.h3>
-    {links.map((link, linkIndex) => (
-      <motion.a
-        key={linkIndex}
-        variants={linkVariants}
-        custom={linkIndex}
-        href={link.href}
-        whileHover={{
-          x: 8,
-          transition: { type: "spring", stiffness: 300, damping: 20 },
-        }}
-        className="text-white/60 hover:text-white transition-colors duration-300 font-sans text-xs md:text-sm group relative"
-      >
-        <span className="relative">
-          {link.name}
-          <motion.span
-            className="absolute bottom-0 left-0 h-0.5 bg-white"
-            initial={{ width: 0 }}
-            whileHover={{ width: "100%" }}
-            transition={{ duration: 0.3 }}
-          />
-        </span>
-      </motion.a>
-    ))}
+    {links.map((link, linkIndex) => {
+      const isExternal = link.href.startsWith('http') || link.href.startsWith('#');
+      const LinkWrapper = isExternal ? 'a' : Link;
+      
+      return (
+        <motion.div
+          key={linkIndex}
+          variants={linkVariants}
+          custom={linkIndex}
+          whileHover={{
+            x: 8,
+            transition: { type: "spring", stiffness: 300, damping: 20 },
+          }}
+        >
+          <LinkWrapper
+            href={link.href}
+            className="text-white/60 hover:text-white transition-colors duration-300 font-sans text-xs md:text-sm group relative inline-block"
+            {...(isExternal && { target: link.href.startsWith('http') ? '_blank' : undefined, rel: link.href.startsWith('http') ? 'noopener noreferrer' : undefined })}
+          >
+            <span className="relative">
+              {link.name}
+              <motion.span
+                className="absolute bottom-0 left-0 h-0.5 bg-white"
+                initial={{ width: 0 }}
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.3 }}
+              />
+            </span>
+          </LinkWrapper>
+        </motion.div>
+      );
+    })}
   </motion.div>
 )
 

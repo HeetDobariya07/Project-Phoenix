@@ -40,9 +40,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden max-w-full">
       <body
-        className={`${michroma.variable} ${poppins.variable} ${playfair.variable} antialiased`}
+        className={`${michroma.variable} ${poppins.variable} ${playfair.variable} antialiased overflow-x-hidden max-w-full`}
       >
         <ScrollProgressBar type="bar" color="#ffffff" strokeSize={3} />
         <RootLayoutWrapper>

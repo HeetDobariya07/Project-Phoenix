@@ -59,15 +59,14 @@ export function BottomNavBar({
   const handleNavigation = (idx: number, href: string, e: React.MouseEvent) => {
     e.preventDefault();
     
-    // Only navigate if clicking a different page
-    if (idx !== activeIndex) {
-      setActiveIndex(idx);
-      
-      // Small delay allows animation to start before navigation
-      setTimeout(() => {
-        router.push(href);
-      }, 50);
-    }
+    // Always update the active index when clicked
+    setActiveIndex(idx);
+    
+    // Navigate to the target href
+    // Small delay allows animation to start before navigation
+    setTimeout(() => {
+      router.push(href);
+    }, 50);
   };
 
   return (

@@ -145,7 +145,7 @@ const Skiper19 = () => {
       
       {/* Mobile SVG Line */}
       <MobileLinePath
-        className="md:hidden absolute left-1/2 -translate-x-1/2 top-0 z-0 w-[90vw]"
+        className="md:hidden absolute left-0 top-0 z-0 w-[60px]"
         scrollYProgress={scrollYProgress}
       />
       <div className="mt-16 md:mt-42 relative flex w-full max-w-[95vw] mx-auto flex-col items-center justify-center gap-3 md:gap-5 text-center mb-12 md:mb-32 z-10 px-2">
@@ -271,7 +271,7 @@ const MobileLinePath = ({
     <svg
       width="100%"
       height="100%"
-      viewBox="0 0 1000 3000"
+      viewBox="0 0 100 3000"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
@@ -279,9 +279,9 @@ const MobileLinePath = ({
       style={{ pointerEvents: 'none', minHeight: '100%' }}
     >
       <motion.path
-        d="M200 0 C250 150, 200 300, 150 500 C100 750, 150 950, 250 1200 C350 1450, 200 1650, 150 1900 C120 2100, 180 2300, 250 2500 C300 2700, 250 2850, 200 3000"
+        d="M30 0 C45 100, 20 200, 35 300 C50 400, 25 500, 40 600 C55 700, 20 800, 30 900 C45 1000, 25 1100, 40 1200 C55 1300, 20 1400, 30 1500 C45 1600, 25 1700, 40 1800 C50 1900, 25 2000, 35 2100 C50 2200, 20 2300, 35 2400 C50 2500, 25 2600, 35 2700 C45 2800, 25 2900, 30 3000"
         stroke="rgba(255, 255, 255, 0.9)"
-        strokeWidth="30"
+        strokeWidth="20"
         fill="none"
         strokeLinecap="round"
         strokeLinejoin="round"
