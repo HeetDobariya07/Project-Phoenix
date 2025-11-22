@@ -16,7 +16,7 @@ export default function Home() {
         <ParallaxGallery />
         
         {/* GitHub CTA Section with Comet Hero */}
-        <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 my-12 sm:my-16 md:my-20">
+        <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 mt-32 sm:mt-40 md:mt-48 lg:mt-56 mb-12 sm:mb-16 md:mb-20">
           {/* Background - CometHero animation */}
           <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-40 pointer-events-none overflow-visible">
             <div className="w-full max-w-sm sm:max-w-2xl md:max-w-3xl lg:max-w-4xl scale-100 md:scale-110">

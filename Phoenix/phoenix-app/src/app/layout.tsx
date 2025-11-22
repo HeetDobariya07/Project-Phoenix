@@ -43,7 +43,8 @@ export default function RootLayout({
     <html lang="en" className="overflow-x-hidden max-w-full">
       <body
         suppressHydrationWarning
-        className={`${michroma.variable} ${poppins.variable} ${playfair.variable} antialiased overflow-x-hidden max-w-full`}
+        className={`${michroma.variable} ${poppins.variable} ${playfair.variable} antialiased overflow-x-hidden max-w-full scrollbar-hide`}
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         <ScrollProgressBar type="bar" color="#ffffff" strokeSize={3} />
         <RootLayoutWrapper>
