@@ -202,7 +202,7 @@ function BentoCard({ span = "", title, blurb, meta, children, className = "" }: 
           </span>
         )}
       </header>
-      <p className="text-[11px] md:text-xs leading-relaxed text-white/70 max-w-prose relative z-10 transition-colors group-hover:text-white/90" style={{ fontFamily: 'var(--font-poppins)' }}>{blurb}</p>
+      <p className="text-[11px] md:text-xs leading-relaxed text-white/70 max-w-prose relative z-10 transition-colors group-hover:text-white/90" style={{ fontFamily: 'var(--font-playfair)' }}>{blurb}</p>
       {children && <div className="mt-2 md:mt-3 relative z-10">{children}</div>}
     </motion.article>
   );

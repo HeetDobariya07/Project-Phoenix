@@ -27,7 +27,7 @@ function BentoCard({ span = "", title, blurb, children }: { span?: string; title
         <h3 className="text-sm md:text-base lg:text-lg font-semibold leading-tight text-white transition-colors group-hover:text-white mb-2 break-words" style={{ fontFamily: "var(--font-michroma)" }}>
           {title}
         </h3>
-        <p className="text-[11px] md:text-xs leading-relaxed text-white/70 max-w-prose relative z-10 transition-colors group-hover:text-white/90 break-words" style={{ fontFamily: "var(--font-poppins)" }}>{blurb}</p>
+        <p className="text-[11px] md:text-xs leading-relaxed text-white/70 max-w-prose relative z-10 transition-colors group-hover:text-white/90 break-words" style={{ fontFamily: "var(--font-playfair)" }}>{blurb}</p>
       </header>
       {children && <div className="relative z-10 w-full max-w-full overflow-hidden box-border">{children}</div>}
     </motion.article>
@@ -118,7 +118,7 @@ export default function Evaluation() {
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-4 text-white leading-tight break-words" style={{ fontFamily: "var(--font-michroma)" }}>
           Performance Evaluation
         </h1>
-        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/80 mb-6 sm:mb-8 md:mb-10 lg:mb-12 max-w-3xl leading-relaxed" style={{ fontFamily: "var(--font-poppins)" }}>
+        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/80 mb-6 sm:mb-8 md:mb-10 lg:mb-12 max-w-3xl leading-relaxed" style={{ fontFamily: "var(--font-playfair)" }}>
           96.3% accuracy across 405 test samples - the model correctly identifies 390 out of every 405 cervical cells
         </p>
 

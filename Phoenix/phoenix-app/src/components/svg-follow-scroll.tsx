@@ -155,11 +155,10 @@ const Skiper19 = () => {
       </div>
 
       {/* Introduction paragraph */}
-      <div className="relative md:absolute md:top-[50vh] w-full z-10 px-4 mb-12 md:mb-0 mt-4 md:mt-0">
-        <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-6">
-          <p className="text-sm sm:text-base md:text-xl text-white/80 leading-relaxed font-medium" style={{ fontFamily: "var(--font-playfair)" }}>
-            Project Phoenix reimagines cervical cancer cell classification with a fully transparent AI pipeline.
-The journey begins with high-quality data preprocessing, ensuring clean and reliable cytology inputs. We then fine-tune advanced deep learning models to recognize subtle cellular patterns with precision. Every prediction is made interpretable through explainability techniques that reveal the features driving the model's decisions. Finally, rigorous performance evaluation demonstrates not only how accurately the system works — but why its judgments can be trusted.
+      <div className="relative md:absolute md:top-[50vh] w-full z-10 px-6 md:px-8 lg:px-12 mb-12 md:mb-0 mt-4 md:mt-0">
+        <div className="max-w-3xl mx-auto text-center space-y-4 md:space-y-6">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed font-normal" style={{ fontFamily: "var(--font-playfair)" }}>
+            Project Phoenix reimagines cervical cancer cell classification with a fully transparent AI pipeline. The journey begins with high-quality data preprocessing, ensuring clean and reliable cytology inputs. We then fine-tune advanced deep learning models to recognize subtle cellular patterns with precision. Every prediction is made interpretable through explainability techniques that reveal the features driving the model's decisions. Finally, rigorous performance evaluation demonstrates not only how accurately the system works — but why its judgments can be trusted.
           </p>
           {/* <p className="text-lg text-white/70 leading-relaxed" style={{ fontFamily: "var(--font-poppins)" }}>
             Through meticulous data preprocessing, transfer learning with ConvNeXt models, and transparent explainability features, 
@@ -173,7 +172,7 @@ The journey begins with high-quality data preprocessing, ensuring clean and reli
       <div className="relative w-full space-y-8 md:hidden">
       {processSteps.map((step, index) => (
         <div key={index} className="relative w-full z-10 px-4">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <FeatureShowcase
               eyebrow={`Step ${index + 1}`}
               title={step.title}
@@ -196,9 +195,9 @@ The journey begins with high-quality data preprocessing, ensuring clean and reli
       {processSteps.map((step, index) => (
         <div
           key={index}
-          className={`hidden md:block absolute ${step.yPosition} w-full z-10 px-8`}
+          className={`hidden md:block absolute ${step.yPosition} w-full z-10 px-8 lg:px-16 xl:px-24`}
         >
-          <div className={`max-w-6xl mx-auto ${step.position === "left" ? "mr-auto" : "ml-auto"}`}>
+          <div className={`max-w-5xl mx-auto ${step.position === "left" ? "mr-auto" : "ml-auto"}`}>
             <FeatureShowcase
               eyebrow={`Step ${index + 1}`}
               title={step.title}

@@ -24,7 +24,7 @@ function BentoCard({ span = "", title, blurb, children }: { span?: string; title
         <h3 className="text-sm md:text-base lg:text-lg font-semibold leading-tight text-white transition-colors group-hover:text-white mb-2" style={{ fontFamily: "var(--font-michroma)" }}>
           {title}
         </h3>
-        <p className="text-[11px] md:text-xs leading-relaxed text-white/70 max-w-prose relative z-10 transition-colors group-hover:text-white/90" style={{ fontFamily: "var(--font-poppins)" }}>{blurb}</p>
+        <p className="text-[11px] md:text-xs leading-relaxed text-white/70 max-w-prose relative z-10 transition-colors group-hover:text-white/90" style={{ fontFamily: "var(--font-playfair)" }}>{blurb}</p>
       </header>
       {children && <div className="relative z-10">{children}</div>}
     </motion.article>
@@ -130,7 +130,7 @@ export default function ModelTraining() {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-white" style={{ fontFamily: "var(--font-michroma)" }}>
             Model Fine-Tuning
           </h1>
-          <p className="text-sm md:text-base lg:text-lg text-white/80 mb-8 md:mb-12 max-w-3xl" style={{ fontFamily: "var(--font-poppins)" }}>
+          <p className="text-sm md:text-base lg:text-lg text-white/80 mb-8 md:mb-12 max-w-3xl" style={{ fontFamily: "var(--font-playfair)" }}>
             Transfer learning with state-of-the-art architectures for cervical cell classification
           </p>
 

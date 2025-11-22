@@ -27,7 +27,7 @@ export default function InferencePage() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4" style={{ fontFamily: "var(--font-michroma)" }}>
               Model Inference
             </h1>
-            <p className="text-base md:text-lg text-white/80 max-w-3xl" style={{ fontFamily: "var(--font-poppins)" }}>
+            <p className="text-base md:text-lg text-white/80 max-w-3xl" style={{ fontFamily: "var(--font-playfair)" }}>
               Run real-time cervical cancer cell classification using our ConvNeXt model deployed on Hugging Face
             </p>
           </div>
