@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Github, Linkedin } from 'lucide-react';
+import { Github, Linkedin, ArrowLeft } from 'lucide-react';
 
 // X (Twitter) Logo Component
 const XLogo = ({ className }: { className?: string }) => (
@@ -67,11 +67,17 @@ const members = [
 
 export default function TeamSection() {
     return (
-        <section className="flex w-full flex-col items-center justify-center min-h-screen py-16 px-4 sm:px-8 md:px-16 pb-32 sm:pb-36 md:pb-40">
-            <div className="mx-auto max-w-5xl w-full">
+        <section className="flex w-full flex-col items-center justify-center min-h-screen py-16 px-6 sm:px-12 md:px-20 lg:px-32 pb-32 sm:pb-36 md:pb-40">
+            <div className="mx-auto max-w-6xl w-full">
+                {/* Back Button */}
+                <Link href="/" className="inline-flex items-center gap-2 text-white hover:text-white/80 mb-8 md:mb-12 transition-colors group">
+                    <ArrowLeft className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:-translate-x-1" />
+                    <span className="text-sm md:text-base" style={{ fontFamily: "var(--font-poppins)" }}>Back to Home</span>
+                </Link>
+
                 <div className="flex flex-col items-center justify-center gap-8 text-center mb-16">
                     <h1
-                        className="font-bold leading-tight text-white drop-shadow-lg"
+                        className="font-bold leading-tight text-white drop-shadow-lg whitespace-nowrap"
                         style={{
                             fontFamily: "var(--font-michroma)",
                             fontSize: "clamp(2rem, 8vw, 6rem)",
@@ -87,11 +93,11 @@ export default function TeamSection() {
 
                 {/* Team Members */}
                 <div className="mt-12 md:mt-16 pb-8">
-                    <div className="grid gap-x-6 gap-y-16 sm:gap-y-20 md:grid-cols-2 lg:gap-x-8">
+                    <div className="grid gap-x-8 gap-y-12 sm:gap-y-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 place-items-center">
                         {members.map((member, index) => (
-                            <div key={index} className="group overflow-hidden mb-8">
+                            <div key={index} className="group overflow-hidden mb-6 max-w-xs w-full">
                                 <img
-                                    className="h-80 sm:h-96 w-full rounded-md object-cover object-top grayscale transition-all duration-500 hover:grayscale-0 group-hover:h-[18rem] sm:group-hover:h-[22.5rem] group-hover:rounded-xl"
+                                    className="aspect-[3/4] w-full rounded-md object-cover object-top grayscale transition-all duration-500 hover:grayscale-0 group-hover:scale-[0.98] group-hover:rounded-xl"
                                     src={member.avatar}
                                     alt={member.name}
                                     width="826"

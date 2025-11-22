@@ -1,4 +1,4 @@
-import { PageLayout, HeroSection, MissionStatement, ParallaxGallery } from "@/components";
+import { PageLayout, HeroSection, MissionStatement, ParallaxGallery } from "@/components/index";
 import { HERO_CONFIG } from "@/config/constants";
 import StickyFooter from "@/components/footer";
 import CometHero from "@/components/comet-hero";

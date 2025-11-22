@@ -1,9 +1,13 @@
 'use client';
 import { ArrowRight } from 'lucide-react';
 
-export  function FlowButton({ text = "Modern Button" }: { text?: string }) {
+export  function FlowButton({ text = "Modern Button", onClick, disabled, className = "" }: { text?: string; onClick?: () => void; disabled?: boolean; className?: string }) {
   return (
-    <button className="group relative flex items-center gap-1 overflow-hidden rounded-[100px] border-[2.5px] border-white/80 bg-transparent px-5 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-2.5 md:py-3 lg:py-3.5 text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-white cursor-pointer transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-transparent hover:text-black hover:rounded-[12px] active:scale-[0.95]">
+    <button 
+      onClick={onClick}
+      disabled={disabled}
+      className={`group relative flex items-center gap-1 overflow-hidden rounded-[100px] border-[2.5px] border-white/80 bg-black/60 px-5 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-2.5 md:py-3 lg:py-3.5 text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-white cursor-pointer transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-transparent hover:text-black hover:rounded-[12px] active:scale-[0.95] disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
+    >
       {/* Left arrow (arr-2) */}
       <ArrowRight 
         className="absolute w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 left-[-25%] stroke-white fill-none z-[9] group-hover:left-4 sm:group-hover:left-5 group-hover:stroke-black transition-all duration-[800ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]" 

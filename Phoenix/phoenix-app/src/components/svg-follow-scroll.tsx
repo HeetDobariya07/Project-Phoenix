@@ -3,6 +3,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import { FeatureShowcase } from "./feature-showcase";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 const processSteps = [
   {
@@ -137,6 +139,14 @@ const Skiper19 = () => {
       ref={ref}
       className="relative mx-auto flex h-auto md:h-[625vh] w-screen flex-col items-center overflow-visible bg-transparent px-4 text-white"
     >
+      {/* Back Button */}
+      <div className="absolute top-8 left-8 z-20">
+        <Link href="/" className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors group">
+          <ArrowLeft className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:-translate-x-1" />
+          <span className="text-sm md:text-base" style={{ fontFamily: "var(--font-poppins)" }}>Back to Home</span>
+        </Link>
+      </div>
+
       {/* Desktop SVG Line */}
       <LinePath
         className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 z-0 w-[90vw] max-w-[1200px]"
@@ -148,14 +158,14 @@ const Skiper19 = () => {
         className="md:hidden absolute left-0 top-0 z-0 w-[60px]"
         scrollYProgress={scrollYProgress}
       />
-      <div className="mt-16 md:mt-42 relative flex w-full max-w-[95vw] mx-auto flex-col items-center justify-center gap-3 md:gap-5 text-center mb-12 md:mb-32 z-10 px-2">
+      <div className="mt-16 md:mt-42 relative flex w-full max-w-[95vw] mx-auto flex-col items-center justify-center gap-3 md:gap-5 text-center mb-12 md:mb-32 z-10 px-6 md:px-8">
         <h1 className="relative z-10 text-5xl sm:text-6xl md:text-8xl font-medium tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.4em] lg:text-9xl leading-tight" style={{ fontFamily: "var(--font-michroma)" }}>
           ABOUT
         </h1>
       </div>
 
       {/* Introduction paragraph */}
-      <div className="relative md:absolute md:top-[50vh] w-full z-10 px-6 md:px-8 lg:px-12 mb-12 md:mb-0 mt-4 md:mt-0">
+      <div className="relative md:absolute md:top-[50vh] w-full z-10 px-8 md:px-16 lg:px-24 mb-12 md:mb-0 mt-4 md:mt-0">
         <div className="max-w-3xl mx-auto text-center space-y-4 md:space-y-6">
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed font-normal" style={{ fontFamily: "var(--font-playfair)" }}>
             Project Phoenix reimagines cervical cancer cell classification with a fully transparent AI pipeline. The journey begins with high-quality data preprocessing, ensuring clean and reliable cytology inputs. We then fine-tune advanced deep learning models to recognize subtle cellular patterns with precision. Every prediction is made interpretable through explainability techniques that reveal the features driving the model's decisions. Finally, rigorous performance evaluation demonstrates not only how accurately the system works — but why its judgments can be trusted.
@@ -171,7 +181,7 @@ const Skiper19 = () => {
       {/* Mobile wrapper with spacing */}
       <div className="relative w-full space-y-12 md:hidden">
       {processSteps.map((step, index) => (
-        <div key={index} className="relative w-full z-10 px-4">
+        <div key={index} className="relative w-full z-10 px-8">
           <div className="max-w-5xl mx-auto">
             <FeatureShowcase
               eyebrow={`Step ${index + 1}`}
@@ -195,7 +205,7 @@ const Skiper19 = () => {
       {processSteps.map((step, index) => (
         <div
           key={index}
-          className={`hidden md:block absolute ${step.yPosition} w-full z-10 px-8 lg:px-16 xl:px-24`}
+          className={`hidden md:block absolute ${step.yPosition} w-full z-10 px-12 lg:px-20 xl:px-32`}
         >
           <div className={`max-w-5xl mx-auto ${step.position === "left" ? "mr-auto" : "ml-auto"}`}>
             <FeatureShowcase
