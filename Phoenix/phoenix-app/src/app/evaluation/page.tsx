@@ -329,7 +329,7 @@ export default function Evaluation() {
               <strong>Key Insight:</strong> All cell types achieve 93-99% accuracy, proving the model doesn't favor any particular type. This balanced performance is crucial for clinical reliability.
             </p>
           </div>
-          <div className="w-full overflow-hidden rounded-lg sm:rounded-xl md:rounded-2xl border-2 border-white/20 bg-black/40 backdrop-blur p-3 sm:p-4 md:p-6"
+          <div className="w-full max-w-full overflow-hidden rounded-lg sm:rounded-xl md:rounded-2xl border-2 border-white/20 bg-black/40 backdrop-blur p-3 sm:p-4 md:p-6 box-border"
             style={{
               backgroundImage: "url('/noise.png')",
               backgroundRepeat: "repeat",
@@ -337,8 +337,8 @@ export default function Evaluation() {
             }}
           >
             <div className="w-full max-w-full overflow-x-auto box-border">
-              <ChartContainer config={chartConfig} className="h-[280px] sm:h-[320px] md:h-[380px] lg:h-[400px] min-w-[280px] max-w-full">
-                <BarChart data={classPerformanceData} margin={{ top: 20, right: 5, bottom: 60, left: 5 }}>
+              <ChartContainer config={chartConfig} className="h-[280px] sm:h-[320px] md:h-[380px] lg:h-[400px] w-full min-w-[280px]">
+                <BarChart data={classPerformanceData} margin={{ top: 20, right: 20, bottom: 60, left: 10 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" vertical={false} />
                   <XAxis 
                     dataKey="class" 
@@ -477,7 +477,7 @@ export default function Evaluation() {
             ))}
           </div>
 
-          <div className="w-full overflow-hidden rounded-lg sm:rounded-xl md:rounded-2xl border-2 border-white/20 bg-black/40 backdrop-blur p-3 sm:p-4 md:p-6"
+          <div className="w-full max-w-full overflow-hidden rounded-lg sm:rounded-xl md:rounded-2xl border-2 border-white/20 bg-black/40 backdrop-blur p-3 sm:p-4 md:p-6 box-border"
             style={{
               backgroundImage: "url('/noise.png')",
               backgroundRepeat: "repeat",
@@ -485,8 +485,8 @@ export default function Evaluation() {
             }}
           >
             <div className="w-full max-w-full overflow-x-auto box-border">
-              <ChartContainer config={chartConfig} className="h-[220px] sm:h-[250px] md:h-[280px] lg:h-[300px] min-w-[280px] max-w-full">
-                <LineChart data={topKAccuracy} margin={{ top: 20, right: 5, bottom: 20, left: 5 }}>
+              <ChartContainer config={chartConfig} className="h-[220px] sm:h-[250px] md:h-[280px] lg:h-[300px] w-full min-w-[280px]">
+                <LineChart data={topKAccuracy} margin={{ top: 20, right: 20, bottom: 20, left: 10 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
                 <XAxis 
                   dataKey="k" 

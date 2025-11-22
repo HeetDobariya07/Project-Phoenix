@@ -9,10 +9,11 @@ import Image from "next/image";
 
 export default function InferencePage() {
   return (
+    <>
     <PageLayout>
       <div className="relative min-h-screen w-full flex flex-col">
         {/* Content */}
-        <div className="relative z-10 flex-1 px-4 sm:px-6 lg:px-8 py-8 md:py-12 max-w-7xl mx-auto w-full">
+        <div className="relative z-10 flex-1 px-6 sm:px-8 md:px-12 lg:px-16 py-8 md:py-12 pb-24 max-w-7xl mx-auto w-full">
           {/* Back Button */}
           <Link 
             href="/"
@@ -59,10 +60,10 @@ export default function InferencePage() {
             </div>
           </motion.div>
         </div>
-
-        {/* Footer */}
-        <StickyFooter />
       </div>
     </PageLayout>
+    
+    <StickyFooter />
+    </>
   );
 }

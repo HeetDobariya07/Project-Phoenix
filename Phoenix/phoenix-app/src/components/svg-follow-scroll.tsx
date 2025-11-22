@@ -37,7 +37,7 @@ const processSteps = [
   },
   {
     position: "left",
-    yPosition: "top-[200vh]",
+    yPosition: "top-[225vh]",
     title: "Model Fine-Tuning",
     description: "Leverage transfer learning with state-of-the-art ConvNeXt architecture for precise cell classification.",
     stats: ["Transfer Learning", "95%+ Accuracy"],
@@ -67,7 +67,7 @@ const processSteps = [
   },
   {
     position: "right",
-    yPosition: "top-[325vh]",
+    yPosition: "top-[350vh]",
     title: "Explainability",
     description: "Build trust through transparent AI decision-making with advanced visualization techniques.",
     stats: ["Grad-CAM", "Attention Maps", "Feature Attribution"],
@@ -97,7 +97,7 @@ const processSteps = [
   },
   {
     position: "left",
-    yPosition: "top-[450vh]",
+    yPosition: "top-[475vh]",
     title: "Performance Evaluation",
     description: "Comprehensive assessment using clinical-grade metrics and real-world validation.",
     stats: ["Multi-Class Metrics", "Confusion Matrix", "ROC Analysis"],
@@ -135,7 +135,7 @@ const Skiper19 = () => {
   return (
     <section
       ref={ref}
-      className="relative mx-auto flex h-auto md:h-[550vh] w-screen flex-col items-center overflow-visible bg-transparent px-4 text-white"
+      className="relative mx-auto flex h-auto md:h-[625vh] w-screen flex-col items-center overflow-visible bg-transparent px-4 text-white"
     >
       {/* Desktop SVG Line */}
       <LinePath
@@ -169,7 +169,7 @@ const Skiper19 = () => {
 
       {/* Feature showcases at each curve */}
       {/* Mobile wrapper with spacing */}
-      <div className="relative w-full space-y-8 md:hidden">
+      <div className="relative w-full space-y-12 md:hidden">
       {processSteps.map((step, index) => (
         <div key={index} className="relative w-full z-10 px-4">
           <div className="max-w-5xl mx-auto">
@@ -232,8 +232,8 @@ const LinePath = ({
   return (
     <svg
       width="100%"
-      height="550vh"
-      viewBox="0 0 1000 5000"
+      height="625vh"
+      viewBox="0 0 1000 5500"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
@@ -241,7 +241,7 @@ const LinePath = ({
       style={{ pointerEvents: 'none' }}
     >
       <motion.path
-        d="M500 0 C550 50, 600 100, 700 200 C850 350, 900 500, 800 700 C700 900, 500 1000, 300 1200 C100 1400, 150 1600, 350 1800 C550 2000, 750 2100, 850 2300 C950 2500, 900 2700, 700 2900 C500 3100, 300 3300, 400 3600 C500 3900, 650 4200, 750 4500 C850 4800, 700 4900, 500 5000"
+        d="M500 0 C550 50, 600 100, 700 200 C850 350, 900 500, 800 700 C700 900, 500 1000, 300 1200 C100 1400, 150 1600, 350 1800 C550 2000, 750 2100, 850 2300 C950 2500, 900 2700, 700 2900 C500 3100, 300 3300, 400 3600 C500 3900, 650 4200, 750 4500 C850 4800, 750 5000, 650 5200 C550 5400, 500 5500, 500 5500"
         stroke="rgba(255, 255, 255, 0.9)"
         strokeWidth="30"
         fill="none"

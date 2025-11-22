@@ -212,7 +212,7 @@ export default function Preprocessing() {
   return (
     <>
       <PageLayout>
-        <div className="container mx-auto px-3 sm:px-4 md:px-6 py-12 md:py-16 lg:py-20">
+        <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 py-12 md:py-16 lg:py-20">
           {/* Back Button */}
           <Link href="/about" className="inline-flex items-center gap-2 text-white hover:text-white/80 mb-6 md:mb-8 transition-colors">
             <ArrowLeft className="w-4 h-4 md:w-5 md:h-5" />
