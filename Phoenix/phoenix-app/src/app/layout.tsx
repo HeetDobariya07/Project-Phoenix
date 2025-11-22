@@ -27,6 +27,11 @@ export const metadata: Metadata = {
   description: "Explainable AI Classification System for cervical cancer cell detection. Explore different types of cervical cells identified through microscopic analysis.",
   keywords: ["cervical cancer", "AI classification", "medical imaging", "explainable AI", "cell detection"],
   authors: [{ name: "Meet Patel" }],
+  icons: {
+    icon: '/Phoenix_Logo_ICO.ico',
+    shortcut: '/Phoenix_Logo_ICO.ico',
+    apple: '/Phoenix_Logo_ICO.ico',
+  },
   openGraph: {
     title: "Project Phoenix - Cervical Cancer Cell Classification",
     description: "Explainable AI Classification System for cervical cancer cell detection",
