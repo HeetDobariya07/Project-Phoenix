@@ -36,6 +36,20 @@ export const metadata: Metadata = {
     title: "Project Phoenix - Cervical Cancer Cell Classification",
     description: "Explainable AI Classification System for cervical cancer cell detection",
     type: "website",
+    images: [
+      {
+        url: '/Phoenix_logo.png',
+        width: 1200,
+        height: 1200,
+        alt: 'Project Phoenix Logo',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Project Phoenix - Cervical Cancer Cell Classification",
+    description: "Explainable AI Classification System for cervical cancer cell detection",
+    images: ['/Phoenix_logo.png'],
   },
 };
 
