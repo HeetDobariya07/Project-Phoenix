@@ -75,12 +75,12 @@ export default function TeamSection() {
                     <span className="text-sm md:text-base" style={{ fontFamily: "var(--font-poppins)" }}>Back to Home</span>
                 </Link>
 
-                <div className="flex flex-col items-center justify-center gap-8 text-center mb-16">
+                <div className="flex flex-col items-center justify-center gap-8 text-center mb-16 px-2">
                     <h1
-                        className="font-bold leading-tight text-white drop-shadow-lg whitespace-nowrap"
+                        className="font-bold leading-tight text-white drop-shadow-lg"
                         style={{
                             fontFamily: "var(--font-michroma)",
-                            fontSize: "clamp(2rem, 8vw, 6rem)",
+                            fontSize: "clamp(1.75rem, 7vw, 6rem)",
                         }}
                     >
                         OUR DREAM TEAM
