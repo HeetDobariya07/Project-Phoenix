@@ -381,10 +381,12 @@ def main():
     with st.sidebar:
         st.header("⚙️ Configuration")
         
-        # Model path
+        # Model path - use relative path for deployment
+        default_model_path = "cbam_resnet50_cervical/best_model.pth"
         model_path = st.text_input(
             "Model Path",
-            value=r"D:\Minor Project\CBAM_ResNet50_Cervical_Classification\cbam_resnet50_cervical\best_model.pth"
+            value=default_model_path,
+            help="Relative path to model file"
         )
         
         st.markdown("---")
