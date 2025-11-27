@@ -133,12 +133,16 @@ class CBAM_ResNet50(nn.Module):
 @st.cache_resource
 def load_model(model_path):
     """Load the trained CBAM-ResNet50 model."""
-    if not Path(model_path).exists():
-        st.error(f"❌ Model file not found at {model_path}")
+    # Get the directory where app.py is located
+    app_dir = Path(__file__).parent
+    full_model_path = app_dir / model_path
+    
+    if not full_model_path.exists():
+        st.error(f"❌ Model file not found at {full_model_path}")
         st.stop()
     
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    checkpoint = torch.load(model_path, map_location=device)
+    checkpoint = torch.load(full_model_path, map_location=device)
     
     class_names = ['Dyskeratotic', 'Koilocytotic', 'Metaplastic', 'Parabasal', 'Superficial-Intermediate']
     num_classes = 5
@@ -412,8 +416,9 @@ def main():
             # Sample images
             st.markdown("**Select a sample image:**")
             
-            # Get sample images from relative path
-            sample_dir = Path("sample_image/original_images")
+            # Get sample images from relative path (relative to app.py location)
+            app_dir = Path(__file__).parent
+            sample_dir = app_dir / "sample_image" / "original_images"
             if sample_dir.exists():
                 sample_images = sorted([f.name for f in sample_dir.iterdir() if f.suffix.lower() in ['.bmp', '.png', '.jpg', '.jpeg']])
                 
