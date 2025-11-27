@@ -305,32 +305,48 @@ def main():
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            st.markdown("### 📊 Features")
+            st.markdown("### 📊 Features & Techniques")
             st.markdown("""
-            - **Deep Learning Model**: CBAM-ResNet50
-            - **Attention Mechanism**: Channel & Spatial
-            - **Explainability**: GradCAM++
-            - **Real-time Inference**: Fast predictions
+            - **Model:** CBAM-ResNet50  
+            - **Attention Modules:** Channel + Spatial  
+            - **Explainability:** GradCAM++  
+            - **Optimized Training:** Early-stopping  
+            - **High-resolution preprocessing**  
+            - **Real-time inference pipeline**
             """)
-        
+
         with col2:
             st.markdown("### 🎯 Capabilities")
             st.markdown("""
-            - Multi-class classification
-            - Confidence scores
-            - Visual explanations
-            - Class-specific activations
+            - Multi-class classification (**5 classes**)  
+            - Confidence score generation  
+            - Visual heatmaps for lesion focus 
+            - Class-wise activation insights
             """)
-        
+
         with col3:
-            st.markdown("### 📈 Performance")
+            st.markdown("### 📈 Stats & Performance")
             st.markdown("""
-            - High accuracy
-            - Robust to variations
-            - Clinically validated
-            - Interpretable results
+            **Model Statistics**  
+            - Total Parameters: **24,214,989**  
+            - Dataset Size: **4049 images**  
+            • Train: 3239  
+            • Validation: 405  
+            • Test: 405  
+
+            **Training**  
+            - Trained for 10 epochs  
+            - Best Epoch: **3**  
+            - Best Val Accuracy: **95.31%**
+
+            **Test Performance**  
+            - Accuracy: **94.32%**  
+            - Precision: **94.40%**  
+            - Recall: **94.32%**  
+            - F1-Score: **94.34%**
             """)
-        
+
+
         return
     
     # Load model
@@ -369,7 +385,7 @@ def main():
         st.markdown(f"""
         <div class="prediction-box">
             <h2 style="color: #1f77b4; margin: 0;">Predicted Class</h2>
-            <h1 style="margin: 0.5rem 0;">{pred_class}</h1>
+            <h1 style="color: #1f77b4; margin: 0.5rem 0;">{pred_class}</h1>
             <h3 style="color: #555;">Confidence: {confidence:.2%}</h3>
         </div>
         """, unsafe_allow_html=True)
