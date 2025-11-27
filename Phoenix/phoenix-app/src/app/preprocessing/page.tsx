@@ -187,7 +187,6 @@ function BentoCard({ span = "", title, blurb, meta, children, className = "" }: 
       transition={{ duration: 0.2 }}
       className={cn(
         "group relative overflow-hidden rounded-xl md:rounded-2xl border-2 border-white/20 bg-black/40 backdrop-blur p-4 md:p-5 lg:p-6 transition-all hover:border-white/40 hover:shadow-xl hover:shadow-white/10 cursor-pointer",
-        "before:absolute before:inset-0 before:z-0 before:opacity-100 before:pointer-events-none before:bg-[url('/noise.png')] before:bg-repeat before:bg-[length:60px_60px]",
         span,
         className
       )}
@@ -537,54 +536,58 @@ export default function Preprocessing() {
                     </p>
                   </div>
 
-                  <div className="grid lg:grid-cols-2 gap-4 md:gap-6 items-center">
+                  <div className="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-8 items-start">
                     {/* Comparison Component */}
-                    <div className="flex justify-center">
-                      <Compare
-                        firstImage={cellClass.processedImage}
-                        secondImage={cellClass.originalImage}
-                        className="w-full max-w-[400px] md:max-w-[500px] aspect-square rounded-lg"
-                        firstImageClassName="object-cover"
-                        secondImageClassname="object-cover"
-                        slideMode="drag"
-                        showHandlebar={true}
-                      />
+                    <div className="flex justify-center w-full">
+                      <div className="relative w-full max-w-[280px] sm:max-w-[350px] md:max-w-[450px] lg:max-w-full">
+                        <Compare
+                          firstImage={cellClass.processedImage}
+                          secondImage={cellClass.originalImage}
+                          className="w-full aspect-square rounded-lg"
+                          firstImageClassName="object-cover"
+                          secondImageClassname="object-cover"
+                          slideMode="drag"
+                          showHandlebar={true}
+                        />
+                      </div>
                     </div>
 
                     {/* Metrics Display with Bar Charts */}
-                    <div className="space-y-3 md:space-y-4">
+                    <div className="space-y-3 md:space-y-4 w-full">
                       <h3 className="text-lg md:text-xl font-semibold text-white mb-4 md:mb-6" style={{ fontFamily: "var(--font-poppins)" }}>
                         Quality Metrics
                       </h3>
-                      <div className="grid grid-cols-4 gap-2 md:gap-4 h-48 md:h-64">
-                        <MetricsBarChart
-                          value={parseFloat(cellClass.metrics.psnr)}
-                          label="PSNR"
-                          subtitle={cellClass.metrics.psnr}
-                          className="bg-white"
-                          delay={0.1}
-                        />
-                        <MetricsBarChart
-                          value={parseFloat(cellClass.metrics.ssim) * 100}
-                          label="SSIM"
-                          subtitle={cellClass.metrics.ssim}
-                          className="bg-white"
-                          delay={0.2}
-                        />
-                        <MetricsBarChart
-                          value={parseFloat(cellClass.metrics.epiRatio) * 50}
-                          label="EPI Ratio"
-                          subtitle={cellClass.metrics.epiRatio}
-                          className="bg-white"
-                          delay={0.3}
-                        />
-                        <MetricsBarChart
-                          value={parseFloat(cellClass.metrics.cnrImprovement.replace('x', '')) * 50}
-                          label="CNR Imp"
-                          subtitle={cellClass.metrics.cnrImprovement}
-                          className="bg-white"
-                          delay={0.4}
-                        />
+                      <div className="w-full max-w-[280px] sm:max-w-[350px] md:max-w-[450px] lg:max-w-full mx-auto lg:mx-0">
+                        <div className="grid grid-cols-4 gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 h-48 md:h-64">
+                          <MetricsBarChart
+                            value={parseFloat(cellClass.metrics.psnr)}
+                            label="PSNR"
+                            subtitle={cellClass.metrics.psnr}
+                            className="bg-white"
+                            delay={0.1}
+                          />
+                          <MetricsBarChart
+                            value={parseFloat(cellClass.metrics.ssim) * 100}
+                            label="SSIM"
+                            subtitle={cellClass.metrics.ssim}
+                            className="bg-white"
+                            delay={0.2}
+                          />
+                          <MetricsBarChart
+                            value={parseFloat(cellClass.metrics.epiRatio) * 50}
+                            label="EPI Ratio"
+                            subtitle={cellClass.metrics.epiRatio}
+                            className="bg-white"
+                            delay={0.3}
+                          />
+                          <MetricsBarChart
+                            value={parseFloat(cellClass.metrics.cnrImprovement.replace('x', '')) * 50}
+                            label="CNR Imp"
+                            subtitle={cellClass.metrics.cnrImprovement}
+                            className="bg-white"
+                            delay={0.4}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>

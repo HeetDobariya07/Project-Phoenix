@@ -338,22 +338,22 @@ export default function Explainability() {
                     </p>
                   </div>
 
-                  <div className="flex justify-center">
-                    <div className="relative">
+                  <div className="flex justify-center w-full px-2 sm:px-0">
+                    <div className="relative w-full max-w-[280px] sm:max-w-[350px] md:max-w-[500px] lg:max-w-[600px]">
                       <Compare
                         firstImage={comparison.heatmapImage}
                         secondImage={comparison.originalImage}
-                        className="w-full max-w-[400px] md:max-w-[600px] aspect-square rounded-lg"
+                        className="w-full aspect-square rounded-lg"
                         firstImageClassName="object-cover"
                         secondImageClassname="object-cover"
                         slideMode="drag"
                         showHandlebar={true}
                       />
-                      <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
-                        <span className="text-xs font-semibold text-white">GradCAM Heatmap</span>
+                      <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-black/60 backdrop-blur-sm px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-white/20">
+                        <span className="text-[10px] sm:text-xs font-semibold text-white">GradCAM Heatmap</span>
                       </div>
-                      <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
-                        <span className="text-xs font-semibold text-white">Original Image</span>
+                      <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-black/60 backdrop-blur-sm px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-white/20">
+                        <span className="text-[10px] sm:text-xs font-semibold text-white">Original Image</span>
                       </div>
                     </div>
                   </div>
@@ -390,22 +390,22 @@ export default function Explainability() {
                     </p>
                   </div>
 
-                  <div className="flex justify-center">
-                    <div className="relative">
+                  <div className="flex justify-center w-full px-2 sm:px-0">
+                    <div className="relative w-full max-w-[280px] sm:max-w-[350px] md:max-w-[500px] lg:max-w-[600px]">
                       <Compare
                         firstImage={comparison.heatmapImage}
                         secondImage={comparison.originalImage}
-                        className="w-full max-w-[400px] md:max-w-[600px] aspect-square rounded-lg"
+                        className="w-full aspect-square rounded-lg"
                         firstImageClassName="object-cover"
                         secondImageClassname="object-cover"
                         slideMode="drag"
                         showHandlebar={true}
                       />
-                      <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
-                        <span className="text-xs font-semibold text-white">GradCAM++ Heatmap</span>
+                      <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-black/60 backdrop-blur-sm px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-white/20">
+                        <span className="text-[10px] sm:text-xs font-semibold text-white">GradCAM++ Heatmap</span>
                       </div>
-                      <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
-                        <span className="text-xs font-semibold text-white">Original Image</span>
+                      <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-black/60 backdrop-blur-sm px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-white/20">
+                        <span className="text-[10px] sm:text-xs font-semibold text-white">Original Image</span>
                       </div>
                     </div>
                   </div>
@@ -442,22 +442,22 @@ export default function Explainability() {
                     </p>
                   </div>
 
-                  <div className="flex justify-center">
-                    <div className="relative">
+                  <div className="flex justify-center w-full px-2 sm:px-0">
+                    <div className="relative w-full max-w-[280px] sm:max-w-[350px] md:max-w-[500px] lg:max-w-[600px]">
                       <Compare
                         firstImage={comparison.heatmapImage}
                         secondImage={comparison.originalImage}
-                        className="w-full max-w-[400px] md:max-w-[600px] aspect-square rounded-lg"
+                        className="w-full aspect-square rounded-lg"
                         firstImageClassName="object-cover"
                         secondImageClassname="object-cover"
                         slideMode="drag"
                         showHandlebar={true}
                       />
-                      <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
-                        <span className="text-xs font-semibold text-white">LayerCAM Heatmap</span>
+                      <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-black/60 backdrop-blur-sm px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-white/20">
+                        <span className="text-[10px] sm:text-xs font-semibold text-white">LayerCAM Heatmap</span>
                       </div>
-                      <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
-                        <span className="text-xs font-semibold text-white">Original Image</span>
+                      <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-black/60 backdrop-blur-sm px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-white/20">
+                        <span className="text-[10px] sm:text-xs font-semibold text-white">Original Image</span>
                       </div>
                     </div>
                   </div>

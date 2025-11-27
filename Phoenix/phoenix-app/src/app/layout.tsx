@@ -23,6 +23,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://project-phoenix-meet2304s-projects.vercel.app'),
   title: "Project Phoenix - Cervical Cancer Cell Classification",
   description: "Explainable AI Classification System for cervical cancer cell detection. Explore different types of cervical cells identified through microscopic analysis.",
   keywords: ["cervical cancer", "AI classification", "medical imaging", "explainable AI", "cell detection"],
