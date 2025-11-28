@@ -1,3 +1,6 @@
+# CBAM-ResNet50 Cervical Cancer Cell Classifier Dependencies
+# System packages required: see packages.txt for OpenCV dependencies
+
 streamlit>=1.28.0
 torch>=2.0.0
 torchvision>=0.15.0
